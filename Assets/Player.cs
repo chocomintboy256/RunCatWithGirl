@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -27,12 +28,21 @@ public class Player : MonoBehaviour
         set { _AnimStateHash = value; }
     }
     private bool _AnimFlag = false;
+    public float SPEED_MAX = 1.5f;
+    public float a_speed = 0.0f;
     public float _speed = 0.6f;
+    public float ROTATION_BRAKE = 15.0f;
     public float speed {
         get {return _speed;}
         set {_speed = value;
         }
     }
+    float nextAngle = 0.0f;
+    Quaternion toRot;
+    public float rotSpeed = 3.0f;
+    public float AccRotSpeed = 0.0f;
+    public float ROTSPEED_MAX = 9.0f;
+    public bool StandFlag = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -48,7 +58,7 @@ public class Player : MonoBehaviour
     {
          switch (Game.GameMode) {
             case Game.GAMEMODE.TITLE: break;
-            case Game.GAMEMODE.PLAY: Action(); break;
+            case Game.GAMEMODE.PLAY: Input(); Action(); break;
         }       
     }
     void OnTriggerEnter(Collider other){ 
@@ -63,6 +73,13 @@ public class Player : MonoBehaviour
         if (_AnimFlag) return;
         CompleteHandler?.Invoke("AnimComp");
         _AnimFlag = true;
+    }
+    void Input() {
+        switch (ActionMode) {
+            case ACTIONMODE.Idol: break;
+            case ACTIONMODE.Run: InputRun(); break;
+            case ACTIONMODE.Up:  break;
+        }
     }
     void Action() {
         ActionTime += Time.deltaTime;
@@ -100,6 +117,29 @@ public class Player : MonoBehaviour
     }
     void ActionRun()
     {
-        transform.position += speed * Vector3.forward * Time.deltaTime;
+        if (!StandFlag) a_speed = Math.Min(a_speed + speed, SPEED_MAX);
+        if (a_speed <= speed) AccRotSpeed = Math.Min(AccRotSpeed + rotSpeed, ROTSPEED_MAX);
+        transform.position += a_speed * transform.forward * Time.deltaTime;
+        transform.rotation = Quaternion.Slerp(transform.rotation, toRot, AccRotSpeed * Time.deltaTime);
+    }
+    void InputRun()
+    {
+       if (Gamepad.current == null) return;
+        var inp = Gamepad.current.leftStick.ReadValue();
+        var tan = Math.Atan2(-inp.y, inp.x);
+        float oldAngle = nextAngle;
+        nextAngle = (float)(tan * Mathf.Rad2Deg + 90.0f);
+        float dist = Math.Abs(Math.Abs(nextAngle) - Math.Abs(oldAngle));
+        toRot = tan == 0.0f ? transform.rotation : Quaternion.Euler(0, nextAngle, 0);
+        if (dist >= ROTATION_BRAKE) a_speed = 0.0f;
+
+        if (Gamepad.current.leftStickButton.isPressed) {
+            NextAnimation("Idol");
+            a_speed = 0.0f;
+            StandFlag = true;
+        } else if(tan != 0.0f && StandFlag) {
+            StandFlag = false;
+            NextAnimation("Run");
+        }
     }
 }

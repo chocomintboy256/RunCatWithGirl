@@ -64,8 +64,9 @@ public class Game: MonoBehaviour
     {
         var keyboard = Keyboard.current;
         if (player.targets.Count > 0 &&
-            keyboard.spaceKey.wasPressedThisFrame) 
-        {
+            keyboard.spaceKey.wasPressedThisFrame ||
+            Gamepad.current.buttonSouth.wasReleasedThisFrame
+        ) {
             player.NextAnimation("Up", ((str) => { player.NextAnimation("Run"); }));
             GameObject target = GetNearestTarget(player.targets);
             Animal animal = target.GetComponent<Animal>();

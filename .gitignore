@@ -76,6 +76,5 @@ crashlytics-build.properties
 /[Aa]ssets/UniGLTF/*
 /[Aa]ssets/vrm/*
 /[Aa]ssets/vrmdata/*
-!/[Aa]ssets/vrmdata/RunGirl01.Materials/*
 /[Aa]ssets/VRMShaders/*
 
