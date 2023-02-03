@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.SceneManagement;
 
 public class Game: MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class Game: MonoBehaviour
         TITLE,
         PLAY,
         COLLECTION,
-        OPTION
+        OPTION,
+        CLEAR 
     }
+    public static GAMEMODE SeneInitGameMode = Game.GAMEMODE.TITLE;
     public static GAMEMODE _GameMode = 0;
     public static GAMEMODE GameMode {
         get {return _GameMode;}
@@ -25,7 +28,6 @@ public class Game: MonoBehaviour
             if (!_ins) _ins = value;
         }
     }
- 
     public GameObject PrefabFance;
     float FanceTileWidth = 1.2f;
     int FanceWidth = 15;
@@ -45,13 +47,15 @@ public class Game: MonoBehaviour
         ins = this;
         fps = (float)(1.0f / Time.fixedDeltaTime);
     }
+
+    [System.Obsolete]
     void Start()
     {
         CameraDistance = GameCam.gameObject.transform.position;
         player = FindObjectOfType<Player>();
         var tmp = FindObjectsOfType<Animal>();
-        Game.NextGameMode(Game.GAMEMODE.TITLE);
         foreach(var animal in tmp) animals.Add(animal.gameObject);
+        Game.NextGameMode(Game.SeneInitGameMode);
     }
     void CreateFance()
     {
@@ -133,6 +137,17 @@ public class Game: MonoBehaviour
             break;
         case GAMEMODE.COLLECTION:break;
         case GAMEMODE.OPTION: break;
+        case GAMEMODE.CLEAR: break;     // 別シーンで対応します
         } 
+    }
+    //--------
+    // シーンをロードしてゲームモードを設定する
+    //--------
+    public static void SceneLoadWithSetGameMode(
+                            GAMEMODE mode, 
+                            string SceneName = "TitleGameScene")
+    {
+        Game.SeneInitGameMode = mode;
+        SceneManager.LoadScene(SceneName); 
     }
 }
