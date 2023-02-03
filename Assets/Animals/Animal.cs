@@ -114,11 +114,11 @@ public class Animal: MonoBehaviour
     }
     public void NextAnimation(string label)
     {
-        animator.Play(AnimStateHash[label], 0, 0.0f); 
+        if(animator) animator.Play(AnimStateHash[label], 0, 0.0f); 
     }
     public void NextAnimation(string label, Action<string> comp)
     {
-        animator.Play(AnimStateHash[label], 0, 0.0f); 
+        if(animator) animator.Play(AnimStateHash[label], 0, 0.0f); 
         CompleteHandler += comp;
     }
 }
