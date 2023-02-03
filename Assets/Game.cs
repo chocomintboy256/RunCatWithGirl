@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Game: MonoBehaviour
 {
@@ -33,6 +34,13 @@ public class Game: MonoBehaviour
     int FanceWidth = 15;
     int FanceHeight = 10;
     bool br = true;
+
+    public int Score = 0;
+    public int GameStartTime = 60;
+    public int GameNowTime = 60;
+    public float timer = 0.0f;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI TimerText;
     public Camera GameCam;
     public Camera GameUICam;
     public Camera TitleCam;
@@ -56,6 +64,9 @@ public class Game: MonoBehaviour
         var tmp = FindObjectsOfType<Animal>();
         foreach(var animal in tmp) animals.Add(animal.gameObject);
         Game.NextGameMode(Game.SeneInitGameMode);
+        
+        DispTime(GameNowTime);
+        DispScore(Score);
     }
     void CreateFance()
     {
@@ -73,7 +84,6 @@ public class Game: MonoBehaviour
             Instantiate(PrefabFance, PosRight, Quaternion.Euler(0.0f,90.0f,0.0f));
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -81,6 +91,15 @@ public class Game: MonoBehaviour
         GameCameraMove();
         CatchUpAnimal();
         if (br) {br=false; CreateFance();}
+        TimerCountDown();
+        if (IsGameClear()) GameClear();
+    }
+    bool IsGameClear() {
+        Debug.Log($"NowTime: {GameNowTime}, Count:{animals.Count}");
+        return GameNowTime == 0 || animals.Count == 0;
+    }
+    void GameClear() {
+        SceneManager.LoadScene("ClearScene");
     }
     void GameCameraMove() 
     {
@@ -100,10 +119,33 @@ public class Game: MonoBehaviour
                 animals.Remove(target);
                 player.targets.Remove(target);
                 Destroy(target);
+                ScoreUp();
             }));
             target.transform.position = player.transform.position + (Vector3.forward / 1.5f);
         }
     }
+    void TimerCountDown()
+    {
+        if (GameMode == Game.GAMEMODE.PLAY) {
+            timer += Time.deltaTime;
+            GameNowTime = Mathf.Max(GameStartTime - Mathf.FloorToInt(timer), 0);
+            DispTime(GameNowTime);
+        }
+    }
+    void DispTime(int now)
+    {
+        TimerText.text = $"タイム: {now}";
+    }
+    void ScoreUp()
+    {
+        Score += 1;
+        DispScore(Score);
+    }
+    void DispScore(int score)
+    {
+        ScoreText.text = $"集めた数: {score}";
+    }
+ 
     GameObject GetNearestTarget(List<GameObject> list)
     {
         if (list.Count == 0) return null;
