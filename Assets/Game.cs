@@ -114,7 +114,9 @@ public class Game: MonoBehaviour
         ) {
             player.NextAnimation("Up", ((str) => { player.NextAnimation("Run"); }));
             GameObject target = GetNearestTarget(player.targets);
-            Animal animal = target.GetComponent<Animal>();
+            if (target == null) return;
+            target.GetComponent<SphereCollider>().enabled = false;  // 当たり判定消す
+            Animal animal = target.GetComponent<Animal>();          // アニメーション切り替え
             animal.NextAnimation("Up", ((str) => {
                 animals.Remove(target);
                 player.targets.Remove(target);
