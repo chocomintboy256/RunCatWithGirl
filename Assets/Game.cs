@@ -26,6 +26,11 @@ public class Game: MonoBehaviour
         }
     }
  
+    public GameObject PrefabFance;
+    float FanceTileWidth = 1.2f;
+    int FanceWidth = 15;
+    int FanceHeight = 10;
+    bool br = true;
     public Camera GameCam;
     public Camera GameUICam;
     public Camera TitleCam;
@@ -48,6 +53,22 @@ public class Game: MonoBehaviour
         foreach(var animal in tmp) animals.Add(animal);
         Game.NextGameMode(Game.GAMEMODE.TITLE);
     }
+    void CreateFance()
+    {
+        Debug.Log(PrefabFance);
+        for (var cnt = 0; cnt < FanceWidth; cnt++) {
+            Vector3 PosTop = new Vector3(-3.0f + FanceTileWidth * cnt, 0.64f, 6.0f);
+            Instantiate(PrefabFance, PosTop, Quaternion.identity);
+            Vector3 PosBottom = new Vector3(-3.0f + FanceTileWidth * cnt, 0.64f, -1.0f);
+            Instantiate(PrefabFance, PosBottom, Quaternion.Euler(0.0f,180.0f,0.0f));
+        }
+        for (var cnt = 0; cnt < FanceHeight; cnt++) {
+            Vector3 PosLeft = new Vector3(-3.0f, 0.64f, 6.0f - FanceTileWidth * cnt);
+            Instantiate(PrefabFance, PosLeft, Quaternion.Euler(0.0f,-90.0f,0.0f));
+            Vector3 PosRight= new Vector3(-3.0f + FanceTileWidth * FanceWidth, 0.64f, 6.0f - FanceTileWidth * cnt);
+            Instantiate(PrefabFance, PosRight, Quaternion.Euler(0.0f,90.0f,0.0f));
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -55,6 +76,7 @@ public class Game: MonoBehaviour
         if (Game._GameMode == 0) return;
         GameCameraMove();
         CatchUpAnimal();
+        if (br) {br=false; CreateFance();}
     }
     void GameCameraMove() 
     {
