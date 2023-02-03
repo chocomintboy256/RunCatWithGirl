@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class GamepadExample : MonoBehaviour
 {
+    public bool GUIHidden = false;
    void Update()
    {
        // ゲームパッドが接続されていないとnullになる。
@@ -21,6 +22,7 @@ public class GamepadExample : MonoBehaviour
    void OnGUI()
    {
        if (Gamepad.current == null) return;
+       if (GUIHidden) return;
 
        GUILayout.Label($"---------:");
        GUILayout.Label($"leftStick: {Gamepad.current.leftStick.ReadValue()}");
