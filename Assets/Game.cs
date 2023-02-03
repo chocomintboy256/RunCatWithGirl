@@ -37,7 +37,7 @@ public class Game: MonoBehaviour
     public Camera TitleUICam;
     public Vector3 CameraDistance;
     public Player player;
-    public List<Animal> animals;
+    public List<GameObject> animals;
     private List<Hashtable> GoData = new List<Hashtable>();
     // Start is called before the first frame update
     void Awake()
@@ -50,8 +50,8 @@ public class Game: MonoBehaviour
         CameraDistance = GameCam.gameObject.transform.position;
         player = FindObjectOfType<Player>();
         var tmp = FindObjectsOfType<Animal>();
-        foreach(var animal in tmp) animals.Add(animal);
         Game.NextGameMode(Game.GAMEMODE.TITLE);
+        foreach(var animal in tmp) animals.Add(animal.gameObject);
     }
     void CreateFance()
     {
@@ -93,6 +93,7 @@ public class Game: MonoBehaviour
             GameObject target = GetNearestTarget(player.targets);
             Animal animal = target.GetComponent<Animal>();
             animal.NextAnimation("Up", ((str) => {
+                animals.Remove(target);
                 player.targets.Remove(target);
                 Destroy(target);
             }));
@@ -119,7 +120,7 @@ public class Game: MonoBehaviour
             ins.GameUICam.gameObject.SetActive(false);
 
             ins.player.NextAction(Player.ACTIONMODE.Idol);
-            foreach (var animal in ins.animals) animal.NextAction(Animal.ACTIONMODE.Idol);
+            foreach (var animal in ins.animals) animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Idol);
             break;
         case GAMEMODE.PLAY:
             ins.TitleCam.gameObject.SetActive(false);
@@ -128,7 +129,7 @@ public class Game: MonoBehaviour
             ins.GameUICam.gameObject.SetActive(true);
 
             ins.player.NextAction(Player.ACTIONMODE.Run);
-            foreach (var animal in ins.animals) animal.NextAction(Animal.ACTIONMODE.Run);
+            foreach (var animal in ins.animals) animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
             break;
         case GAMEMODE.COLLECTION:break;
         case GAMEMODE.OPTION: break;
