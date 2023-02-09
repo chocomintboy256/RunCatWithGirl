@@ -29,6 +29,12 @@ public class Game: MonoBehaviour
             if (!_ins) _ins = value;
         }
     }
+    public GameInputs _gameInputs;
+    public GameInputs gameInputs {
+        get {return _gameInputs;}
+        set {if (_gameInputs == null) _gameInputs = value;}
+    }
+    private bool _IsInputAction = false;
     public GameObject PrefabFance;
     float FanceTileWidth = 1.2f;
     int FanceWidth = 15;
@@ -59,6 +65,7 @@ public class Game: MonoBehaviour
     [System.Obsolete]
     void Start()
     {
+        InitInput();
         CameraDistance = GameCam.gameObject.transform.position;
         player = FindObjectOfType<Player>();
         var tmp = FindObjectsOfType<Animal>();
@@ -68,6 +75,18 @@ public class Game: MonoBehaviour
         DispTime(GameNowTime);
         DispScore(Score);
     }
+    void InitInput()
+    {
+        // InputAction設定
+        _gameInputs = new GameInputs();
+        _gameInputs.Player.Action.started += OnAction;
+        _gameInputs.Player.Action.performed += OnAction;
+        _gameInputs.Player.Action.canceled += OnAction;
+        _gameInputs.Enable();
+    }
+    public void OnAction(InputAction.CallbackContext context) {
+        _IsInputAction = true;
+    }    
     void CreateFance()
     {
         Debug.Log(PrefabFance);
@@ -84,6 +103,10 @@ public class Game: MonoBehaviour
             Instantiate(PrefabFance, PosRight, Quaternion.Euler(0.0f,90.0f,0.0f));
         }
     }
+    void InputClear()
+    {
+        _IsInputAction = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -93,6 +116,7 @@ public class Game: MonoBehaviour
         if (br) {br=false; CreateFance();}
         TimerCountDown();
         if (IsGameClear()) GameClear();
+        InputClear();
     }
     bool IsGameClear() {
         return GameNowTime == 0 || animals.Count == 0;
@@ -106,11 +130,7 @@ public class Game: MonoBehaviour
     }
     void CatchUpAnimal()
     {
-        var keyboard = Keyboard.current;
-        if (player.targets.Count > 0 &&
-            keyboard.spaceKey.wasPressedThisFrame ||
-            Gamepad.current.buttonSouth.wasReleasedThisFrame
-        ) {
+        if (player.targets.Count > 0 && _IsInputAction) {
             player.NextAnimation("Up", ((str) => { player.NextAnimation("Run"); }));
             GameObject target = GetNearestTarget(player.targets);
             if (target == null) return;

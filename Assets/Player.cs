@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
         Up,
         Rot
     }
-    private GameInputs _gameInputs;
     public ACTIONMODE ActionMode = ACTIONMODE.Idol;
     public float ActionTime = 0.0f;
     public event Action<string> CompleteHandler;
@@ -50,7 +49,7 @@ public class Player : MonoBehaviour
     public float ROTSPEED_MAX = 9.0f;
     public bool StandFlag = false;
     private Vector2 _mouseInputValue;
-    private Vector3 _initCameraPos;
+    private Vector2 _stickInputValue;
     public Camera GameCamera;
     // Start is called before the first frame update
     void Awake()
@@ -60,13 +59,16 @@ public class Player : MonoBehaviour
     void Start()
     {
         // InputAction設定
-        _gameInputs = new GameInputs();
-        _gameInputs.Player.MousePosition.started += OnMousePosition;
-        _gameInputs.Player.MousePosition.performed += OnMousePosition;
-        _gameInputs.Player.MousePosition.canceled += OnMousePosition;
+        var _gameInputs = Game.ins.gameInputs;
+        _gameInputs.Player.Move.started += OnMove;
+        _gameInputs.Player.Move.performed += OnMove;
+        _gameInputs.Player.Move.canceled += OnMove;
+        _gameInputs.Player.MoveStick.started += OnMoveStick;
+        _gameInputs.Player.MoveStick.performed += OnMoveStick;
+        _gameInputs.Player.MoveStick.canceled += OnMoveStick;
+ 
         //_gameInputs.Player.Jump.performed += OnJump;
         _gameInputs.Enable();
-        _initCameraPos = GameCamera.transform.position;
    }
 
     // Update is called once per frame
@@ -141,8 +143,15 @@ public class Player : MonoBehaviour
     }
 
     // マウス座標が更新された時に通知するコールバック関数
-    public void OnMousePosition(InputAction.CallbackContext context) {
+    public void OnMove(InputAction.CallbackContext context) {
         _mouseInputValue = context.ReadValue<Vector2>();
+    }
+    public void OnMoveStick(InputAction.CallbackContext context) {
+        _stickInputValue = context.ReadValue<Vector2>();
+    }
+    bool IsInputGamePad()
+    {
+        return _stickInputValue.x != 0 || _stickInputValue.y != 0;
     }
     double GetInputTangent(INPUT_TYPE type)
     {
@@ -156,30 +165,22 @@ public class Player : MonoBehaviour
                 var screenPosition = screenPlayerPosition - new Vector3(Screen.width/2, Screen.height/2, 0.0f);
                 var v3 = new Vector3(_mouseInputValue.x + screenPosition.x, _mouseInputValue.y + screenPosition.y, 1.0f);
                 var worldMousePosition = Camera.main.ScreenToWorldPoint(v3);
-                //var worldcampos = new Vector3(0.0f, 0.0f, 2.3f);
-                //var rangeVec = worldMousePosition - playerPosition - _initCameraPos;
                 var rangeVec = worldMousePosition - playerPosition - new Vector3(0.0f, 0.0f, 1.5f);
                 rangeVec.y = 0.0f;
-                var normVec = Vector3.Normalize(rangeVec);
-                //tan = Math.Atan2(normVec.z, normVec.x);
                 tan = Math.Atan2(-rangeVec.z, rangeVec.x);
                 var angle = tan * (180/Math.PI);
-                //Debug.Log($"m:{_mouseInputValue} w: {worldMousePosition} p:{playerPosition} r:{rangeVec} n:{normVec} t:{tan}");
-                Debug.Log($"cp:{CameraPosition} scp:{screenCameraPosition} spp:{screenPlayerPosition} sp:{screenPosition} m:{_mouseInputValue} v3: {v3} \nw: {worldMousePosition} p:{playerPosition} icp:{_initCameraPos} r:{rangeVec} n:{normVec} t:{tan} a:{angle}");
-                //Debug.Log($"m:{_mouseInputValue} v3: {v3} w: {worldMousePosition} p:{playerPosition} r:{rangeVec} n:{normVec} t:{tan} a:{angle}");
+                // Debug.Log($"cp:{CameraPosition} scp:{screenCameraPosition} spp:{screenPlayerPosition} sp:{screenPosition} m:{_mouseInputValue} v3: {v3} \nw: {worldMousePosition} p:{playerPosition} icp:{_initCameraPos} r:{rangeVec} t:{tan} a:{angle}");
                 break;
             case INPUT_TYPE.PAD:
-                var inp = Gamepad.current.leftStick.ReadValue();                 // ゲームパッドの左スティック入力を取得
-                tan = Math.Atan2(-inp.y, inp.x);                             // 入力からタンジェント取得
+                tan = Math.Atan2(-_stickInputValue.y, _stickInputValue.x);                   // 入力からタンジェント取得
+                Debug.Log($"x: {_stickInputValue.x} y: {_stickInputValue.y} tan: {tan}");
                 break;
        }
         return tan;
     }
     void InputRun()
     {
-        double tan = 0.0f;
-        if (Gamepad.current != null) tan = GetInputTangent(INPUT_TYPE.PAD);
-        if (tan == 0.0f) tan = GetInputTangent(INPUT_TYPE.MOUSE);
+        double tan = GetInputTangent(IsInputGamePad() ? INPUT_TYPE.PAD : INPUT_TYPE.MOUSE);
         float oldAngle = nextAngle;                                      // 今の角度を旧角度に記録
         nextAngle = (float)(tan * Mathf.Rad2Deg + 90.0f);                // 進行方向取得
         toRot = tan == 0.0f ? transform.rotation : Quaternion.Euler(0, nextAngle, 0); //  EulerをQuaternionへ
