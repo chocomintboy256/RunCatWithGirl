@@ -87,7 +87,7 @@ public class Game: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Game._GameMode == 0) return;
+        if (Game._GameMode == GAMEMODE.TITLE) return;
         GameCameraMove();
         CatchUpAnimal();
         if (br) {br=false; CreateFance();}
@@ -95,7 +95,6 @@ public class Game: MonoBehaviour
         if (IsGameClear()) GameClear();
     }
     bool IsGameClear() {
-        Debug.Log($"NowTime: {GameNowTime}, Count:{animals.Count}");
         return GameNowTime == 0 || animals.Count == 0;
     }
     void GameClear() {
