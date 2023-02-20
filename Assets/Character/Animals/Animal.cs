@@ -49,9 +49,9 @@ public class Animal: MonoBehaviour
     // Update is called once per frame
     public virtual void FixedUpdate()
     {
-        switch (Game.GameMode) {
-            case Game.GAMEMODE.TITLE: break;
-            case Game.GAMEMODE.PLAY: Action(); break;
+        switch (GameManager.GameMode) {
+            case GameManager.GAMEMODE.TITLE: break;
+            case GameManager.GAMEMODE.PLAY: Action(); break;
         }
     }
     void Action() {
