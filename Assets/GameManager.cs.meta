@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 498f901a6de4b254ab25b46053542aa4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PrefabFance: {instanceID: 0}
+  - GameCam: {instanceID: 0}
+  - GameUICam: {instanceID: 0}
+  - TitleCam: {instanceID: 0}
+  - TitleUICam: {instanceID: 0}
+  - player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

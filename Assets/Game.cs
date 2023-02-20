@@ -9,19 +9,6 @@ using TMPro;
 public class Game: MonoBehaviour
 {
     public static float fps;
-    public enum GAMEMODE {
-        TITLE,
-        PLAY,
-        COLLECTION,
-        OPTION,
-        CLEAR 
-    }
-    public static GAMEMODE SeneInitGameMode = Game.GAMEMODE.TITLE;
-    public static GAMEMODE _GameMode = 0;
-    public static GAMEMODE GameMode {
-        get {return _GameMode;}
-        set {_GameMode = value;}
-    }
     public static Game _ins;
     public static Game ins {
         get {return _ins;}
@@ -34,7 +21,6 @@ public class Game: MonoBehaviour
         get {return _gameInputs;}
         set {if (_gameInputs == null) _gameInputs = value;}
     }
-    private bool _IsInputAction = false;
     public GameObject PrefabFance;
     float FanceTileWidth = 1.2f;
     int FanceWidth = 15;
@@ -49,8 +35,6 @@ public class Game: MonoBehaviour
     public TextMeshProUGUI TimerText;
     public Camera GameCam;
     public Camera GameUICam;
-    public Camera TitleCam;
-    public Camera TitleUICam;
     public Vector3 CameraDistance;
     public Player player;
     public List<GameObject> animals;
@@ -66,11 +50,14 @@ public class Game: MonoBehaviour
     void Start()
     {
         InitInput();
+        player.NextAction(Player.ACTIONMODE.Run);
+        foreach (var animal in ins.animals) 
+            animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
+
         CameraDistance = GameCam.gameObject.transform.position;
         player = FindObjectOfType<Player>();
         var tmp = FindObjectsOfType<Animal>();
         foreach(var animal in tmp) animals.Add(animal.gameObject);
-        Game.NextGameMode(Game.SeneInitGameMode);
         
         DispTime(GameNowTime);
         DispScore(Score);
@@ -78,18 +65,18 @@ public class Game: MonoBehaviour
     void InitInput()
     {
         // InputAction設定
-        _gameInputs = new GameInputs();
+        /*_gameInputs = new GameInputs();
         _gameInputs.Player.Action.started += OnAction;
         _gameInputs.Player.Action.performed += OnAction;
         _gameInputs.Player.Action.canceled += OnAction;
         _gameInputs.Enable();
+       */
     }
-    public void OnAction(InputAction.CallbackContext context) {
+    /*public void OnAction(InputAction.CallbackContext context) {
         _IsInputAction = true;
-    }    
+    }*/    
     void CreateFance()
     {
-        Debug.Log(PrefabFance);
         for (var cnt = 0; cnt < FanceWidth; cnt++) {
             Vector3 PosTop = new Vector3(-3.0f + FanceTileWidth * cnt, 0.64f, 6.0f);
             Instantiate(PrefabFance, PosTop, Quaternion.identity);
@@ -103,20 +90,15 @@ public class Game: MonoBehaviour
             Instantiate(PrefabFance, PosRight, Quaternion.Euler(0.0f,90.0f,0.0f));
         }
     }
-    void InputClear()
-    {
-        _IsInputAction = false;
-    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Game._GameMode == GAMEMODE.TITLE) return;
         GameCameraMove();
         CatchUpAnimal();
         if (br) {br=false; CreateFance();}
         TimerCountDown();
         if (IsGameClear()) GameClear();
-        InputClear();
     }
     bool IsGameClear() {
         return GameNowTime == 0 || animals.Count == 0;
@@ -130,7 +112,7 @@ public class Game: MonoBehaviour
     }
     void CatchUpAnimal()
     {
-        if (player.targets.Count > 0 && _IsInputAction) {
+        if (player.targets.Count > 0 && GameManager.ins.IsInputAction) {
             player.NextAnimation("Up", ((str) => { player.NextAnimation("Run"); }));
             GameObject target = GetNearestTarget(player.targets);
             if (target == null) return;
@@ -147,11 +129,9 @@ public class Game: MonoBehaviour
     }
     void TimerCountDown()
     {
-        if (GameMode == Game.GAMEMODE.PLAY) {
-            timer += Time.deltaTime;
-            GameNowTime = Mathf.Max(GameStartTime - Mathf.FloorToInt(timer), 0);
-            DispTime(GameNowTime);
-        }
+        timer += Time.deltaTime;
+        GameNowTime = Mathf.Max(GameStartTime - Mathf.FloorToInt(timer), 0);
+        DispTime(GameNowTime);
     }
     void DispTime(int now)
     {
@@ -176,41 +156,5 @@ public class Game: MonoBehaviour
                     Vector3.Distance(p1, b.transform.position) ? -1 : 1;
         });
         return list[0];
-    }
-    public static void NextGameMode(GAMEMODE nextGameMode) {
-        GameMode = nextGameMode;
-        switch (GameMode) {
-        case GAMEMODE.TITLE: 
-            ins.TitleCam.gameObject.SetActive(true);
-            ins.TitleUICam.gameObject.SetActive(true);
-            ins.GameCam.gameObject.SetActive(false);
-            ins.GameUICam.gameObject.SetActive(false);
-
-            ins.player.NextAction(Player.ACTIONMODE.Idol);
-            foreach (var animal in ins.animals) animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Idol);
-            break;
-        case GAMEMODE.PLAY:
-            ins.TitleCam.gameObject.SetActive(false);
-            ins.TitleUICam.gameObject.SetActive(false);
-            ins.GameCam.gameObject.SetActive(true);
-            ins.GameUICam.gameObject.SetActive(true);
-
-            ins.player.NextAction(Player.ACTIONMODE.Run);
-            foreach (var animal in ins.animals) animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
-            break;
-        case GAMEMODE.COLLECTION:break;
-        case GAMEMODE.OPTION: break;
-        case GAMEMODE.CLEAR: break;     // 別シーンで対応します
-        } 
-    }
-    //--------
-    // シーンをロードしてゲームモードを設定する
-    //--------
-    public static void SceneLoadWithSetGameMode(
-                            GAMEMODE mode, 
-                            string SceneName = "TitleGameScene")
-    {
-        Game.SeneInitGameMode = mode;
-        SceneManager.LoadScene(SceneName); 
     }
 }

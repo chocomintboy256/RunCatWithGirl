@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 
-
 public class Title : MonoBehaviour
 {
-    public Camera GameCamera;
+    public Player player;
+    public List<GameObject> animals;
     // Start is called before the first frame update
     void Start()
     {
-
+        player.NextAction(Player.ACTIONMODE.Idol);
+        foreach (var animal in animals) 
+            animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Idol);
     }
 
     // Update is called once per frame
@@ -18,16 +20,23 @@ public class Title : MonoBehaviour
     {
         
     }
-    public void OnClick(GameObject obj)
+    public void OnClick(GameObject btn)
     {
-        switch (obj.name) {
+        switch (btn.name) {
             case "ButtonStart": 
-                Game.NextGameMode(Game.GAMEMODE.PLAY);
-                gameObject.SetActive(false);
+                GameManager.NextGameMode(GameManager.GAMEMODE.PLAY);
                 break;
-            case "ButtonRule": break;
-            case "ButtonCollection": break;
-            case "ButtonOption": break;
+            case "ButtonRule":
+            case "ButtonCollection":
+            case "ButtonOption":
+                var ui = GameObject.Find($"/Title UI Canvas");
+                var panelName = btn.name.Replace("Button","Panel");
+                ui.transform.Find(panelName).gameObject.SetActive(true);
+                Debug.Log(ui.transform.Find(panelName));
+                break;
+            case "ButtonClose":
+                btn.transform.parent.gameObject.SetActive(false);
+                break;
         }
     }
 }

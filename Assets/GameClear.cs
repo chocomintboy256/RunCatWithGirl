@@ -37,7 +37,7 @@ public class GameClear: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Game.GameMode == Game.GAMEMODE.CLEAR) return;
+        if (GameManager.GameMode == GameManager.GAMEMODE.CLEAR) return;
     }
     void GameClearInit()
     {
@@ -54,10 +54,10 @@ public class GameClear: MonoBehaviour
     public void OnClick(string str) {
         switch(str){
             case "Retry": 
-                Game.SceneLoadWithSetGameMode(Game.GAMEMODE.PLAY);
+                GameManager.SceneLoadWithSetGameMode(GameManager.GAMEMODE.PLAY);
                 break;
             case "ToTitle":
-                Game.SceneLoadWithSetGameMode(Game.GAMEMODE.TITLE);
+                GameManager.SceneLoadWithSetGameMode(GameManager.GAMEMODE.TITLE);
                break;
         }
     }
