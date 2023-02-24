@@ -29,9 +29,12 @@ public class GameClear: MonoBehaviour
     void Start()
     {
         CameraDistance = GameCam.gameObject.transform.position;
-        player = FindObjectOfType<Player>();
-        var tmp = FindObjectsOfType<Animal>();
-        foreach(var animal in tmp) animals.Add(animal.gameObject);
+        if (player == null) player = FindObjectOfType<Player>();
+        if (animals.Count == 0)
+        {
+            var tmp = FindObjectsOfType<Animal>();
+            foreach (var animal in tmp) animals.Add(animal.gameObject);
+        }
         GameClearInit();
     }
     // Update is called once per frame

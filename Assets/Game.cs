@@ -49,32 +49,19 @@ public class Game: MonoBehaviour
     [System.Obsolete]
     void Start()
     {
-        InitInput();
         player.NextAction(Player.ACTIONMODE.Run);
         foreach (var animal in ins.animals) 
             animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
 
         CameraDistance = GameCam.gameObject.transform.position;
-        player = FindObjectOfType<Player>();
-        var tmp = FindObjectsOfType<Animal>();
-        foreach(var animal in tmp) animals.Add(animal.gameObject);
-        
+        if (player == null) player = FindObjectOfType<Player>();
+        if (animals.Count == 0) {
+            var tmp = FindObjectsOfType<Animal>();
+            foreach(var animal in tmp) animals.Add(animal.gameObject);
+        }
         DispTime(GameNowTime);
         DispScore(Score);
     }
-    void InitInput()
-    {
-        // InputAction設定
-        /*_gameInputs = new GameInputs();
-        _gameInputs.Player.Action.started += OnAction;
-        _gameInputs.Player.Action.performed += OnAction;
-        _gameInputs.Player.Action.canceled += OnAction;
-        _gameInputs.Enable();
-       */
-    }
-    /*public void OnAction(InputAction.CallbackContext context) {
-        _IsInputAction = true;
-    }*/    
     void CreateFance()
     {
         for (var cnt = 0; cnt < FanceWidth; cnt++) {
