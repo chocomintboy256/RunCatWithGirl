@@ -100,17 +100,22 @@ public class Game: MonoBehaviour
     void CatchUpAnimal()
     {
         if (player.targets.Count > 0 && GameManager.ins.IsInputAction) {
-            player.NextAnimation("Up", ((str) => { player.NextAnimation("Run"); }));
-            GameObject target = GetNearestTarget(player.targets);
+            player.NextAction(Player.ACTIONMODE.Up,                 // プレイヤーが拾うアクション
+                (compEventNameFromFBX) => {
+                    player.NextAction(Player.ACTIONMODE.Run);
+                });
+            GameObject target = GetNearestTarget(player.targets);   // 一番近いターゲット取得
             if (target == null) return;
-            target.GetComponent<SphereCollider>().enabled = false;  // 当たり判定消す
-            Animal animal = target.GetComponent<Animal>();          // アニメーション切り替え
-            animal.NextAnimation("Up", ((str) => {
-                animals.Remove(target);
-                player.targets.Remove(target);
-                Destroy(target);
-                ScoreUp();
-            }));
+            Animal animal = target.GetComponent<Animal>();          
+            if (animal.ActionMode == Animal.ACTIONMODE.Up) return;  // すでに持ち上がっていたらやめ
+            target.GetComponent<SphereCollider>().enabled = false;  // 持ち上げ処理に移行 ターゲットの当たり判定消す
+            animal.NextAction(Animal.ACTIONMODE.Up,                 // アニメーション設定
+                (compEventNameFromFBX) => { 
+                    animals.Remove(target);
+                    player.targets.Remove(target);
+                    Destroy(target);
+                    ScoreUp();
+                });
             target.transform.position = player.transform.position + (Vector3.forward / 1.5f);
         }
     }

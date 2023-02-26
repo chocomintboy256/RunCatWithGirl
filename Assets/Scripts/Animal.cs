@@ -82,6 +82,10 @@ public class Animal: MonoBehaviour
             case ACTIONMODE.Rot: NextAnimation("Rot"); break;
         }
     }
+    public void NextAction(ACTIONMODE nextAction, Action<string> comp) {
+        NextAction(nextAction);
+        CompleteHandler += comp;
+    }
     void ActionRotationInit() {
         float rotDir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
         float nextAngle = transform.eulerAngles.y + ROT_NUM * rotDir;
@@ -112,11 +116,11 @@ public class Animal: MonoBehaviour
         CompleteHandler?.Invoke("AnimComp");
         _AnimFlag = true;
     }
-    public void NextAnimation(string label)
+    private void NextAnimation(string label)
     {
         if(animator) animator.Play(AnimStateHash[label], 0, 0.0f); 
     }
-    public void NextAnimation(string label, Action<string> comp)
+    private void NextAnimation(string label, Action<string> comp)
     {
         if(animator) animator.Play(AnimStateHash[label], 0, 0.0f); 
         CompleteHandler += comp;

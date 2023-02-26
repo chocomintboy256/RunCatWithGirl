@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
         get { return _AnimStateHash; }
         set { _AnimStateHash = value; }
     }
-    private bool _AnimFlag = false;
     public float friction = 0.05f;
     public float SPEED_MAX = 1.5f;
     public float a_speed = 0.0f;
@@ -73,10 +72,10 @@ public class Player : MonoBehaviour
         if (!other.gameObject.TryGetComponent(out Animal comp)) return;
         targets.Remove(other.gameObject);
     }
+    //-- from FBX import setting Event
     void AnimComp() {
-        if (_AnimFlag) return;
         CompleteHandler?.Invoke("AnimComp");
-        _AnimFlag = true;
+        CompleteHandler -= CompleteHandler;
     }
     void Input() {
         switch (ActionMode) {
@@ -90,7 +89,7 @@ public class Player : MonoBehaviour
         switch (ActionMode) {
             case ACTIONMODE.Idol: break;
             case ACTIONMODE.Run: ActionRun(); break;
-            case ACTIONMODE.Up:  break;
+            case ACTIONMODE.Up:  ActionUp(); break;
         }
     }
     void NextActionInit(ACTIONMODE nextAction) {
@@ -102,7 +101,7 @@ public class Player : MonoBehaviour
             case ACTIONMODE.Up:  break;
         } 
     }
-    public void NextAction(ACTIONMODE nextAction) {
+   public void NextAction(ACTIONMODE nextAction) {
         NextActionInit(nextAction);
         switch (ActionMode) {
             case ACTIONMODE.Idol: NextAnimation("Idol"); break;
@@ -110,16 +109,28 @@ public class Player : MonoBehaviour
             case ACTIONMODE.Up: NextAnimation("Up"); break;
         } 
     }
-    public void NextAnimation(string label)
+    public void NextAction(ACTIONMODE nextAction, Action<string> comp) {
+        NextAction(nextAction);
+        CompleteHandler += comp;
+    }
+    private void NextAnimation(string label)
     {
         animator.Play(AnimStateHash[label], 0, 0.0f); 
     }
-    public void NextAnimation(string label, Action<string> comp)
+    private void NextAnimation(string label, Action<string> comp)
     {
         animator.Play(AnimStateHash[label], 0, 0.0f); 
         CompleteHandler += comp;
     }
+    void ActionUp()
+    {
+        SpeedRun(speed/2.5f);
+    }
     void ActionRun()
+    {
+       SpeedRun(speed); 
+    }
+    void SpeedRun(float speed)
     {
         if (!StandFlag) a_speed = Math.Min(a_speed + speed, SPEED_MAX);
         a_speed = Math.Max(a_speed - friction, 0.0f);
