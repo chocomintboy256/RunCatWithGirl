@@ -73,8 +73,18 @@ crashlytics-build.properties
 
 # Original Settings
 /[Aa]ssets/TextMesh Pro/*
+/[Aa]ssets/TextMesh Pro.meta
 /[Aa]ssets/UniGLTF/*
+/[Aa]ssets/UniGLTF.meta
+/[Aa]ssets/unity-chan!/*
+/[Aa]ssets/unity-chan!.meta
 /[Aa]ssets/vrm/*
+/[Aa]ssets/vrm/.meta
 /[Aa]ssets/vrmdata/*
+/[Aa]ssets/vrmdata.meta
 /[Aa]ssets/VRMShaders/*
-
+/[Aa]ssets/VRMShaders.meta
+/[Aa]ssets/Character/RunGirl02/*
+/[Aa]ssets/Character/RunGirl02.meta
+/[Aa]ssets/Character/unity-chan!/*
+/[Aa]ssets/Character/unity-chan!.meta
