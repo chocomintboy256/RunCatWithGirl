@@ -61,7 +61,10 @@ public class Player : MonoBehaviour
     {
          switch (GameManager.GameMode) {
             case GameManager.GAMEMODE.TITLE: break;
-            case GameManager.GAMEMODE.PLAY: Input(); Action(); break;
+            case GameManager.GAMEMODE.PLAY: 
+                Input();
+                Action();
+                break;
         }       
     }
     void OnTriggerEnter(Collider other){ 
