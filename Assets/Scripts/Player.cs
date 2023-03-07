@@ -60,7 +60,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
          switch (GameManager.GameMode) {
-            case GameManager.GAMEMODE.TITLE: break;
+            case GameManager.GAMEMODE.TITLE:
+                break;
             case GameManager.GAMEMODE.PLAY: 
                 Input();
                 Action();
@@ -82,34 +83,57 @@ public class Player : MonoBehaviour
     }
     void Input() {
         switch (ActionMode) {
-            case ACTIONMODE.Idol: break;
-            case ACTIONMODE.Run: InputRun(); break;
-            case ACTIONMODE.Up:  break;
+            case ACTIONMODE.Idol: 
+                break;
+            case ACTIONMODE.Run: 
+                InputRun();
+                break;
+            case ACTIONMODE.Up:
+                break;
         }
     }
-    void Action() {
+    public void PubAction() {
+        int aa = 1;
+        aa = aa + 1;
+        Action();
+    }
+    private void Action() {
         ActionTime += Time.deltaTime;
         switch (ActionMode) {
-            case ACTIONMODE.Idol: break;
-            case ACTIONMODE.Run: ActionRun(); break;
-            case ACTIONMODE.Up:  ActionUp(); break;
+            case ACTIONMODE.Idol:
+                break;
+            case ACTIONMODE.Run: 
+                ActionRun();
+                break;
+            case ACTIONMODE.Up:  
+                ActionUp();
+                break;
         }
     }
     void NextActionInit(ACTIONMODE nextAction) {
         ActionMode = nextAction;
         ActionTime = 0.0f;
         switch (ActionMode) {
-            case ACTIONMODE.Idol: break;
-            case ACTIONMODE.Run: break;
-            case ACTIONMODE.Up:  break;
-        } 
+            case ACTIONMODE.Idol:
+                break;
+            case ACTIONMODE.Run:
+                break;
+            case ACTIONMODE.Up:
+                break;
+        }
     }
    public void NextAction(ACTIONMODE nextAction) {
         NextActionInit(nextAction);
         switch (ActionMode) {
-            case ACTIONMODE.Idol: NextAnimation("Idol"); break;
-            case ACTIONMODE.Run: NextAnimation("Run"); break;
-            case ACTIONMODE.Up: NextAnimation("Up"); break;
+            case ACTIONMODE.Idol: 
+                NextAnimation("Idol"); 
+                break;
+            case ACTIONMODE.Run: 
+                NextAnimation("Run");
+                break;
+            case ACTIONMODE.Up:
+                NextAnimation("Up");
+                break;
         } 
     }
     public void NextAction(ACTIONMODE nextAction, Action<string> comp) {
@@ -202,7 +226,7 @@ public class Player : MonoBehaviour
         float dist = Math.Abs(Math.Abs(nextAngle) - Math.Abs(oldAngle)); // 角度距離取得
         if (dist >= ROTATION_BRAKE) a_speed = 0.0f;                      // 角度距離が15度超えてたら加速をなしにする
 
-        if (Gamepad.current.leftStickButton.isPressed || a_speed == 0.0 && tan == 0.0) {
+        if (Gamepad.current != null && Gamepad.current.leftStickButton.isPressed || a_speed == 0.0 && tan == 0.0) {
             NextAnimation("Idol");
             //a_speed = 0.0f;
             StandFlag = true;

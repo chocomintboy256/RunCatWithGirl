@@ -99,7 +99,7 @@ public class Game: MonoBehaviour
     }
     void CatchUpAnimal()
     {
-        if (player.targets.Count > 0 && GameManager.ins.IsInputAction) {
+        if (player.targets.Count > 0 && GameManager.ins.IsInputFire) {
             player.NextAction(Player.ACTIONMODE.Up,                 // プレイヤーが拾うアクション
                 (compEventNameFromFBX) => {
                     player.NextAction(Player.ACTIONMODE.Run);

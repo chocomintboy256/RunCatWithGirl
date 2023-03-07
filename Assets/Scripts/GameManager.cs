@@ -35,10 +35,10 @@ public class GameManager: MonoBehaviour
         get {return _gameInputs;}
         set {if (_gameInputs == null) _gameInputs = value;}
     }
-    private bool _IsInputAction = false;
-    public bool IsInputAction {
-        get {return _IsInputAction;}
-        set {_IsInputAction = value;}
+    private bool _IsInputFire = false;
+    public bool IsInputFire {
+        get {return _IsInputFire;}
+        set {_IsInputFire = value;}
     }
     private Vector2 _mouseInputValue;
     public Vector2 mouseInputValue {
@@ -87,16 +87,16 @@ public class GameManager: MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        InputActionClear();
+        InputFireClear();
     }
 
     void InitInput()
     {
-        // InputAction設定
+        // InputFire設定
         _gameInputs = new GameInputs();
-        _gameInputs.Player.Action.started += OnAction;
-        _gameInputs.Player.Action.performed += OnAction;
-        _gameInputs.Player.Action.canceled += OnAction;
+        _gameInputs.Player.Fire.started += OnFire;
+        _gameInputs.Player.Fire.performed += OnFire;
+        _gameInputs.Player.Fire.canceled += OnFire;
 
         _gameInputs.Player.Move.started += OnMove;
         _gameInputs.Player.Move.performed += OnMove;
@@ -108,12 +108,12 @@ public class GameManager: MonoBehaviour
         _gameInputs.Enable();
     }
     //---- Input ----
-    public void OnAction(InputAction.CallbackContext context) {
-        _IsInputAction = true;
+    public void OnFire(InputAction.CallbackContext context) {
+        _IsInputFire = true;
     }    
-    public void InputActionClear()
+    public void InputFireClear()
     {
-        _IsInputAction = false;
+        _IsInputFire = false;
     }
     public bool IsInputGamePad()
     {
@@ -148,6 +148,10 @@ public class GameManager: MonoBehaviour
                             string SceneName = "GameScene")
     {
         GameManager.SeneInitGameMode = mode;
+        SceneName = 
+            mode == GameManager.GAMEMODE.TITLE ? "TitleScene" :
+            mode == GameManager.GAMEMODE.PLAY ? "GameScene" :
+            mode == GameManager.GAMEMODE.CLEAR ? "ClearScene" : "GameScene";
         SceneManager.LoadScene(SceneName); 
     }
 }
