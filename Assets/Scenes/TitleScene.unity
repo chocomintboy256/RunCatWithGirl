@@ -3054,6 +3054,419 @@ MonoBehaviour:
   ROTSPEED_MAX: 9
   StandFlag: 0
   GameCamera: {fileID: 0}
+--- !u!114 &811910248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811910238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246455474a0d74a4291b3cedc896ebdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonePaths:
+  - 
+  - Armature
+  - Armature/Hips
+  - Armature/Hips/Koshi
+  - Armature/Hips/Koshi/ZKoshi190
+  - Armature/Hips/Koshi/ZKoshi190/Yure0Add190
+  - Armature/Hips/Koshi/ZKoshi190/Yure0Add190/YureEnd
+  - Armature/Hips/Spine
+  - Armature/Hips/Spine/Spine1
+  - Armature/Hips/Spine/Spine1/Spine2
+  - Armature/Hips/Spine/Spine1/Spine2/Mune
+  - Armature/Hips/Spine/Spine1/Spine2/Mune/Mune_L
+  - Armature/Hips/Spine/Spine1/Spine2/Mune/Mune_L/Mune_L.001
+  - Armature/Hips/Spine/Spine1/Spine2/Mune/Mune_R
+  - Armature/Hips/Spine/Spine1/Spine2/Mune/Mune_R/Mune_R.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Ago
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Hoho_L
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Hoho_R
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/Hair
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.003/CKFBone.018
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.003/CKFBone.018/CKFBone.020
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.005/CKFBone.006
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.007
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.007/CKFBone.008
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.009
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.009/CKFBone.010
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.012
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.012/CKFBone.017
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/ClusterKamiFRoot/CKFBone.012/CKFBone.017/CKFBone.019
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/Yure0Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/Yure0Add16/Yure0.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/Yure1Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/Yure1Add16/Yure1.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureMaeL0Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureMaeL0Add16/MaeBoneL0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureMaeM0Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureMaeM0Add16/MaeBoneM0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureMaeM1Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureMaeM1Add16/MaeBoneM1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro0Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro0Add16/UshiroBone0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro1Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro1Add16/UshiroBone1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro2Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro2Add16/UshiroBone2
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro3Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureUshiro3Add16/UshiroBone3
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko0Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko0Add16/YokoBone0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko1Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko1Add16/YokoBone1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko2Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko2Add16/YokoBone2
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko3Add16
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot16/YureYoko3Add16/YokoBoneBone3
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureMaeM0Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureMaeM1Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureMaeS0Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro0Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro1Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro2Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro3Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro3Add18/UshiroBone0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro4Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro4Add18/UshiroBone1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro5Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureUshiro5Add18/UshiroBone2
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureYoko0Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureYoko1Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureYoko2Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureYoko2Add18/YokoBone0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureYoko3Add18
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot18/YureYoko3Add18/YokoBone1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureMaeM0Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureMaeM1Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureMaeS0Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro0Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro0Add19/UshiroBone0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro0Add19/UshiroBone0/UshiroBone1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro0Add19/UshiroBone0/UshiroBone1/UshiroBone2
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro0Add19/UshiroBone0/UshiroBone1/UshiroBone2/UshiroBone3
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro1Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro1Add19/UshiroBone4
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro1Add19/UshiroBone4/UshiroBone5
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro1Add19/UshiroBone4/UshiroBone5/UshiroBone6
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureUshiro1Add19/UshiroBone4/UshiroBone5/UshiroBone6/UshiroBone7
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureYoko0Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureYoko0Add19/Yoko2Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureYoko0Add19/Yoko2Add19/Yoko3Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureYoko1Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureYoko1Add19/Yoko4Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot19/YureYoko1Add19/Yoko4Add19/Yoko5Add19
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureMaeS0Add20
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro0Add20
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro0Add20/UshiroBone0
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro0Add20/UshiroBone0/UshiroBone1
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro0Add20/UshiroBone0/UshiroBone1/UshiroBone2
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro0Add20/UshiroBone0/UshiroBone1/UshiroBone2/UshiroBone3
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro1Add20
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro1Add20/UshiroBone4
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro1Add20/UshiroBone4/UshiroBone5
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro1Add20/UshiroBone4/UshiroBone5/UshiroBone6
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureUshiro1Add20/UshiroBone4/UshiroBone5/UshiroBone6/UshiroBone7
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureYoko0Add20
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot20/YureYoko1Add20
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureMaeL0Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro0Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro0Add230/ClusterKamiGRoot_L.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro1Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro1Add230/ClusterKamiGRoot_L.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro2Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro2Add230/ClusterKamiGRoot_R.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro3Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureUshiro3Add230/ClusterKamiGRoot_R.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko0Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko0Add230/ClusterKamiGRoot_L.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko1Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko1Add230/ClusterKamiGRoot_L.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko2Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko2Add230/ClusterKamiGRoot_R.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko3Add230
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot230/YureYoko3Add230/ClusterKamiGRoot_R.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231/YureMaeL0Add231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231/YureUshiro0Add231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231/YureUshiro1Add231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231/YureUshiro2Add231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231/YureYoko0Add231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot231/YureYoko1Add231
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/Yure0Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/Yure0Add232/Yure0.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/Yure0Add232/Yure0.001/Yure0.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureMaeL0Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureMaeM0Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureMaeM1Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureUshiro0Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureUshiro0Add232/TTYureUshiro0.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureUshiro1Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureUshiro1Add232/TTYureUshiro1.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureUshiro2Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureUshiro2Add232/TTYureUshiro2.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko0Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko0Add232/TTYureYoko0.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko1Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko1Add232/TTYureYoko1.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko2Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko2Add232/TTYureYoko0.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko3Add232
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot232/YureYoko3Add232/TTYureYoko1.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeL0Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeL1Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeL2Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeM0Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeM0Add233/ClusterKamiJRoot_L.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeM0Add233/ClusterKamiJRoot_L.005/ClusterKamiJRoot_L.006
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeM1Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeM1Add233/ClusterKamiJRoot_R.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureMaeM1Add233/ClusterKamiJRoot_R.005/ClusterKamiJRoot_R.006
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureYoko0Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureYoko0Add233/ClusterKamiJRoot_L.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureYoko1Add233
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot233/YureYoko1Add233/ClusterKamiJRoot_R.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234/YureMaeL0Add234
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234/YureUshiro0Add234
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234/YureYoko0Add234
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234/YureYoko0Add234/HrSalon15Yure.004
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234/YureYoko1Add234
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot234/YureYoko1Add234/HrSalon15Yure.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/Yure0Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/Yure0Add235/ClusterKamiIAho.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/Yure0Add235/ClusterKamiIAho.001/ClusterKamiIAho.002
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureMaeL0Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureMaeL1Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureMaeL2Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureUshiro0Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureUshiro0Add235/ClusterKamiIRoot_R.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureUshiro1Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureUshiro1Add235/ClusterKamiIRoot_L.005
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureYoko0Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureYoko0Add235/ClusterKamiIRoot_R.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureYoko1Add235
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot235/YureYoko1Add235/ClusterKamiIRoot_L.003
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/Ushiro0Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureMaeL0Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureMaeM0Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureMaeS0Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko0Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko1Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko2Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko3Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko4Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko5Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko6Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/KamiAll/BoneRoot237/YureYoko7Add237
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Kuchi
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Kuchi/Hana
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Kuchi/Kuchi.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MayuRoot
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MayuRoot/Mayu_L
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MayuRoot/Mayu_R
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeganeBone
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_L
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_L/LeftEyeRoot
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_L/LeftEyeRoot/LeftEye
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_L/LeftEyeRoot/LeftEye/Hitomi_L
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_L/LeftEyeRoot/LeftEye/Hitomi_L/Hitomi_L.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_R
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_R/RightEyeRoot
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_R/RightEyeRoot/RightEye
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_R/RightEyeRoot/RightEye/Hitomi_R
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/MeRoot/Me_R/RightEyeRoot/RightEye/Hitomi_R/Hitomi_R.001
+  - Armature/Hips/Spine/Spine1/Spine2/Neck/Head/Neck.001
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerA1_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerA1_L/FingerA2_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerA1_L/FingerA2_L/FingerA3_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerB1_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerB1_L/FingerB2_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerB1_L/FingerB2_L/FingerB3_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerC1_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerC1_L/FingerC2_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerC1_L/FingerC2_L/FingerC3_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerD1_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerD1_L/FingerD2_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerD1_L/FingerD2_L/FingerD3_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerE1_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerE1_L/FingerE2_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Hand_L/FingerE1_L/FingerE2_L/FingerE3_L
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Neji_L.001
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Neji_L.001/Neji_L.002
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/ForeArm_L/Neji_L.001/Neji_L.002/Neji_L.003
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_L/Arm_L/Arm_L.001
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerA1_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerA1_R/FingerA2_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerA1_R/FingerA2_R/FingerA3_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerB1_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerB1_R/FingerB2_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerB1_R/FingerB2_R/FingerB3_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerC1_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerC1_R/FingerC2_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerC1_R/FingerC2_R/FingerC3_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerD1_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerD1_R/FingerD2_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerD1_R/FingerD2_R/FingerD3_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerE1_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerE1_R/FingerE2_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Hand_R/FingerE1_R/FingerE2_R/FingerE3_R
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Neji_R.001
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Neji_R.001/Neji_R.002
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/ForeArm_R/Neji_R.001/Neji_R.002/Neji_R.003
+  - Armature/Hips/Spine/Spine1/Spine2/Shoulder_R/Arm_R/Arm_R.001
+  - Armature/Hips/Spine/West
+  - Armature/Hips/UpLeg_L
+  - Armature/Hips/UpLeg_L/Leg_L
+  - Armature/Hips/UpLeg_L/Leg_L/Foot_L
+  - Armature/Hips/UpLeg_L/Leg_L/Foot_L/Toe_L
+  - Armature/Hips/UpLeg_L/Leg_L/Leg_L.001
+  - Armature/Hips/UpLeg_L/UpLeg_L.001
+  - Armature/Hips/UpLeg_R
+  - Armature/Hips/UpLeg_R/Leg_R
+  - Armature/Hips/UpLeg_R/Leg_R/Foot_R
+  - Armature/Hips/UpLeg_R/Leg_R/Foot_R/Toe_R
+  - Armature/Hips/UpLeg_R/Leg_R/Leg_R.001
+  - Armature/Hips/UpLeg_R/UpLeg_R.001
+  - Armature/Hips/BoneRoot187
+  - Armature/Hips/BoneRoot190
+  - Armature/Hips/BoneRoot193
+  - CKaoCecilMatome
+  - CMayu
+  - CMeMatome
+  - Deko
+  - SotaiDress
+  - VKutuDress
+  - Obj190VFuku
+  - Obj234
+  - secondary
+  showBones: 0000000008000000090000000f00000010000000e6000000e7000000e8000000e9000000fd000000fe000000ff00000000010000150100001601000017010000180100001b0100001c0100001d0100001e010000
+  foldoutBones: 1d0100001c0100001b01000017010000160100001501000011010000100100000e0100000d0100000b0100000a01000008010000070100000501000004010000020100000101000000010000ff000000fe000000fd000000fa000000f9000000f7000000f6000000f4000000f3000000f1000000f0000000ee000000ed000000eb000000ea000000e9000000e8000000e7000000e6000000e3000000e2000000e1000000e0000000de000000dd000000dc000000db000000da000000d6000000d3000000c6000000c4000000c2000000c0000000be000000b9000000b8000000b7000000b5000000b3000000b0000000ae000000ac000000aa000000a9000000a7000000a6000000a2000000a00000009e0000009c0000009a0000009800000096000000940000008f0000008e0000008d000000860000008400000082000000800000007e0000007c0000007a000000780000007600000074000000700000006f0000006e0000006d0000006b0000006a000000690000006800000066000000640000006300000061000000600000005e0000005d0000005c0000005b0000005900000058000000570000005600000052000000500000004e0000004a00000048000000460000003f0000003d0000003b00000039000000370000003500000033000000310000002f0000002d0000002b0000002900000027000000250000002400000022000000210000001f0000001d0000001b00000019000000180000001600000014000000100000000f0000000d0000000b0000000a000000090000000800000007000000050000000400000003000000020000000100000000000000
+  mirrorBones: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0d0000000e0000000b0000000c000000ffffffffffffffffffffffff1300000012000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd8000000d7000000ffffffffffffffffe0000000e1000000e2000000e3000000e4000000db000000dc000000dd000000de000000df000000fffffffffd000000fe000000ff000000000100000101000002010000030100000401000005010000060100000701000008010000090100000a0100000b0100000c0100000d0100000e0100000f01000010010000110100001201000013010000e6000000e7000000e8000000e9000000ea000000eb000000ec000000ed000000ee000000ef000000f0000000f1000000f2000000f3000000f4000000f5000000f6000000f7000000f8000000f9000000fa000000fb000000fc000000ffffffff1b0100001c0100001d0100001e0100001f0100002001000015010000160100001701000018010000190100001a010000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  mirrorBlendShape:
+  - renderer: {fileID: 916675886}
+    names:
+    - blink_left
+    - blink_right
+    - lowerlid_left
+    - lowerlid_right
+    - Jito_L
+    - Jito_R
+    - Nico_L
+    - Nico_R
+    mirrorNames:
+    - blink_right
+    - blink_left
+    - lowerlid_right
+    - lowerlid_left
+    - Jito_R
+    - Jito_L
+    - Nico_R
+    - Nico_L
+  - renderer: {fileID: 1432572184}
+    names: []
+    mirrorNames: []
+  - renderer: {fileID: 1841470070}
+    names:
+    - L
+    - R
+    mirrorNames:
+    - R
+    - L
+  animatorIkData:
+  - enable: 0
+    _fixed: 0
+    autoRotation: 0
+    spaceType: 0
+    parent: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    headWeight: 1
+    eyesWeight: 0
+    swivelRotation: 0
+    swivelPosition: {x: 0, y: 0, z: 0}
+    parentPath: 
+  - enable: 0
+    _fixed: 0
+    autoRotation: 0
+    spaceType: 0
+    parent: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    headWeight: 1
+    eyesWeight: 0
+    swivelRotation: 0
+    swivelPosition: {x: 0, y: 0, z: 0}
+    parentPath: 
+  - enable: 0
+    _fixed: 0
+    autoRotation: 0
+    spaceType: 0
+    parent: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    headWeight: 1
+    eyesWeight: 0
+    swivelRotation: 0
+    swivelPosition: {x: 0, y: 0, z: 0}
+    parentPath: 
+  - enable: 0
+    _fixed: 0
+    autoRotation: 0
+    spaceType: 0
+    parent: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    headWeight: 1
+    eyesWeight: 0
+    swivelRotation: 0
+    swivelPosition: {x: 0, y: 0, z: 0}
+    parentPath: 
+  - enable: 0
+    _fixed: 0
+    autoRotation: 0
+    spaceType: 0
+    parent: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    headWeight: 1
+    eyesWeight: 0
+    swivelRotation: 0
+    swivelPosition: {x: 0, y: 0, z: 0}
+    parentPath: 
+  originalIkData: []
+  selectionData: []
+  lastSelectAnimationClip: {fileID: 7400000, guid: 689da6f371ad8441395f39acaf2c7ae3, type: 2}
+  handPoseList: []
+  blendShapeList: []
 --- !u!1 &857974845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,6 +3678,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885018933}
   m_CullTransparentMesh: 1
+--- !u!137 &916675886 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3988883962676236243, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+  m_PrefabInstance: {fileID: 1487074823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931289817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,7 +5155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 15679d1d87fa4a04884207fcea38bb69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.323
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 15679d1d87fa4a04884207fcea38bb69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5629,6 +6047,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420830882}
   m_CullTransparentMesh: 1
+--- !u!137 &1432572184 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8838658524507892563, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+  m_PrefabInstance: {fileID: 1487074823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1436775712
 GameObject:
   m_ObjectHideFlags: 0
@@ -5791,6 +6214,94 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 135634763791309649, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135634763791309649, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135634763791309649, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135634763791309649, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 164975785172307939, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 164975785172307939, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 164975785172307939, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 184976542297100353, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 264014631262331021, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.023391023
+      objectReference: {fileID: 0}
+    - target: {fileID: 264014631262331021, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 264014631262331021, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 264014631262331021, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341158236764721933, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 341158236764721933, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341158236764721933, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341158236764721933, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475989518255203221, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475989518255203221, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475989518255203221, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840451827604514449, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 840451827604514449, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 840451827604514449, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 1206784422337858202, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -5818,6 +6329,34 @@ PrefabInstance:
     - target: {fileID: 1206784422337858202, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.05525469
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347493046325595390, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0017963591
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347493046325595390, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8846811
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347493046325595390, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.004842443
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404992030214759396, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0059552584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404992030214759396, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404992030214759396, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404992030214759396, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1547102377319159566, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
@@ -5847,9 +6386,29 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.10714133
       objectReference: {fileID: 0}
+    - target: {fileID: 1647631791260378164, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647631791260378164, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647631791260378164, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647631791260378164, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 1896716554444693498, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_Name
       value: RunGirl02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896716554444693498, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2087148236967465590, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
@@ -5878,6 +6437,94 @@ PrefabInstance:
     - target: {fileID: 2087148236967465590, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.23649308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180924132638105012, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180924132638105012, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2180924132638105012, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467608214255435250, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467608214255435250, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467608214255435250, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467608214255435250, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548596434029728859, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548596434029728859, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548596434029728859, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548596434029728859, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663209173852576684, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663209173852576684, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2663209173852576684, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757348450416203880, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757348450416203880, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757348450416203880, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757348450416203880, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988127892346813044, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988127892346813044, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988127892346813044, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988127892346813044, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3323192735358216424, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_RootOrder
@@ -5939,6 +6586,34 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3548913740456711398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548913740456711398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3548913740456711398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585473071986183865, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585473071986183865, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585473071986183865, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585473071986183865, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 3669265519930269333, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -5966,6 +6641,18 @@ PrefabInstance:
     - target: {fileID: 3669265519930269333, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.07111128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776363459956007225, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776363459956007225, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776363459956007225, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3988883962676236243, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
@@ -5995,6 +6682,82 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.11493763
       objectReference: {fileID: 0}
+    - target: {fileID: 4158740626550375550, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158740626550375550, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158740626550375550, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158740626550375550, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311003695533470769, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311003695533470769, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311003695533470769, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311003695533470769, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355055694289387818, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05026491
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355055694289387818, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355055694289387818, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355055694289387818, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355055694289387818, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727012145528351428, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.054362014
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727012145528351428, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727012145528351428, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727012145528351428, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039349747880061294, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039349747880061294, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 5117940335750337165, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -6022,6 +6785,18 @@ PrefabInstance:
     - target: {fileID: 5117940335750337165, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.011783063
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298872916334690063, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298872916334690063, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298872916334690063, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5595077815524789000, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
@@ -6051,6 +6826,166 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.20199734
       objectReference: {fileID: 0}
+    - target: {fileID: 5759771229344766110, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905766447094963850, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905766447094963850, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905766447094963850, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905766447094963850, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292558078068080730, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6292558078068080730, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517327904724326031, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517327904724326031, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820405332577719989, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820405332577719989, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820405332577719989, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833699723935845900, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05761297
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833699723935845900, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833699723935845900, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833699723935845900, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833699723935845900, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835797464871124895, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835797464871124895, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835797464871124895, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835797464871124895, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845715082813225268, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845715082813225268, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845715082813225268, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6845715082813225268, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973962132554835855, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973962132554835855, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973962132554835855, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984103675115116040, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984103675115116040, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984103675115116040, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984103675115116040, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084727431261505480, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.025794089
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084727431261505480, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084727431261505480, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084727431261505480, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213354564102714763, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213354564102714763, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213354564102714763, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213354564102714763, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 7938579671680804977, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -6062,6 +6997,118 @@ PrefabInstance:
     - target: {fileID: 7938579671680804977, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980197455039992549, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980197455039992549, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980197455039992549, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980197455039992549, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035630223042287398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05763717
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035630223042287398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035630223042287398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035630223042287398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035630223042287398, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083582615975905386, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083582615975905386, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083582615975905386, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083582615975905386, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287557060735857123, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.20781098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287557060735857123, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287557060735857123, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287557060735857123, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317661299501435413, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317661299501435413, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317661299501435413, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317661299501435413, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494993493098132395, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494993493098132395, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494993493098132395, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494993493098132395, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787519405047000544, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787519405047000544, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787519405047000544, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8838658524507892563, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_DirtyAABB
@@ -6090,6 +7137,38 @@ PrefabInstance:
     - target: {fileID: 8838658524507892563, guid: 313883e643063df4a842eddf8011ec38, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.016500112
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141852426478965445, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141852426478965445, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141852426478965445, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9141852426478965445, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187107185357236030, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187107185357236030, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187107185357236030, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187107185357236030, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313883e643063df4a842eddf8011ec38, type: 3}
@@ -7992,6 +9071,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840215464}
   m_CullTransparentMesh: 1
+--- !u!137 &1841470070 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5117940335750337165, guid: 313883e643063df4a842eddf8011ec38, type: 3}
+  m_PrefabInstance: {fileID: 1487074823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1903687040
 GameObject:
   m_ObjectHideFlags: 0
