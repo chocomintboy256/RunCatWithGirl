@@ -84,6 +84,8 @@ crashlytics-build.properties
 /[Aa]ssets/vrmdata.meta
 /[Aa]ssets/VRMShaders/*
 /[Aa]ssets/VRMShaders.meta
+/[Aa]ssets/VeryAnimation/*
+/[Aa]ssets/VeryAnimation.meta
 /[Aa]ssets/Character/RunGirl02/*
 /[Aa]ssets/Character/RunGirl02.meta
 /[Aa]ssets/Character/unity-chan!/*
