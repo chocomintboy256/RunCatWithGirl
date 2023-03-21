@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
         Idol,
         Run,
         Up,
-        Rot
+        Rot,
+        Clear
     }
     public ACTIONMODE ActionMode = ACTIONMODE.Idol;
     public float ActionTime = 0.0f;
@@ -25,7 +26,8 @@ public class Player : MonoBehaviour
         {"Idol", Animator.StringToHash("Base Layer.Armature|Idol")},
         {"Run", Animator.StringToHash("Base Layer.Armature|Run")},
         {"Up", Animator.StringToHash("Base Layer.Armature|Up")},
-        {"Rot", Animator.StringToHash("Base Layer.Armature|Run")}
+        {"Rot", Animator.StringToHash("Base Layer.Armature|Run")},
+        {"Clear", Animator.StringToHash("Base Layer.Clear")}
     };
     public Dictionary<string, int> AnimStateHash {
         get { return _AnimStateHash; }
@@ -83,13 +85,10 @@ public class Player : MonoBehaviour
     }
     void Input() {
         switch (ActionMode) {
-            case ACTIONMODE.Idol: 
-                break;
-            case ACTIONMODE.Run: 
-                InputRun();
-                break;
-            case ACTIONMODE.Up:
-                break;
+            case ACTIONMODE.Idol: break;
+            case ACTIONMODE.Run: InputRun(); break;
+            case ACTIONMODE.Up: break; 
+            case ACTIONMODE.Clear: break; 
         }
     }
     public void PubAction() {
@@ -100,40 +99,29 @@ public class Player : MonoBehaviour
     private void Action() {
         ActionTime += Time.deltaTime;
         switch (ActionMode) {
-            case ACTIONMODE.Idol:
-                break;
-            case ACTIONMODE.Run: 
-                ActionRun();
-                break;
-            case ACTIONMODE.Up:  
-                ActionUp();
-                break;
+            case ACTIONMODE.Idol: break;
+            case ACTIONMODE.Run: ActionRun(); break;
+            case ACTIONMODE.Up:  ActionUp(); break;
+            case ACTIONMODE.Clear:  ActionClear(); break;
         }
     }
     void NextActionInit(ACTIONMODE nextAction) {
         ActionMode = nextAction;
         ActionTime = 0.0f;
         switch (ActionMode) {
-            case ACTIONMODE.Idol:
-                break;
-            case ACTIONMODE.Run:
-                break;
-            case ACTIONMODE.Up:
-                break;
+            case ACTIONMODE.Idol: break;
+            case ACTIONMODE.Run: break; 
+            case ACTIONMODE.Up: break;
+            case ACTIONMODE.Clear: break;
         }
     }
    public void NextAction(ACTIONMODE nextAction) {
         NextActionInit(nextAction);
         switch (ActionMode) {
-            case ACTIONMODE.Idol: 
-                NextAnimation("Idol"); 
-                break;
-            case ACTIONMODE.Run: 
-                NextAnimation("Run");
-                break;
-            case ACTIONMODE.Up:
-                NextAnimation("Up");
-                break;
+            case ACTIONMODE.Idol: NextAnimation("Idol"); break;
+            case ACTIONMODE.Run: NextAnimation("Run"); break;
+            case ACTIONMODE.Up: NextAnimation("Up"); break;
+            case ACTIONMODE.Clear: NextAnimation("Clear"); break;
         } 
     }
     public void NextAction(ACTIONMODE nextAction, Action<string> comp) {
@@ -157,6 +145,10 @@ public class Player : MonoBehaviour
     {
        SpeedRun(speed); 
     }
+    void ActionClear()
+    {
+    }
+ 
     void SpeedRun(float speed)
     {
         if (!StandFlag) a_speed = Math.Min(a_speed + speed, SPEED_MAX);

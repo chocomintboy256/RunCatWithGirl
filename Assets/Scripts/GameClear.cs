@@ -49,7 +49,7 @@ public class GameClear: MonoBehaviour
         GameCam.gameObject.SetActive(false);
         GameUICam.gameObject.SetActive(false);
 
-        player.NextAction(Player.ACTIONMODE.Idol);
+        player.NextAction(Player.ACTIONMODE.Clear);
         foreach (var animal in animals) animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Idol);
         //TimerText.text = Game._ins.GameNowTime.ToString();
         ScoreText.text = $"集めた数: {Game._ins.Score}";
