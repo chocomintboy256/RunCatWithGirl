@@ -40,6 +40,16 @@ public class GameManager: MonoBehaviour
         get {return _IsInputFire;}
         set {_IsInputFire = value;}
     }
+    private Vector2 _canceldMouseInputValue;
+    public Vector2 canceldMouseInputValue {
+        get {return _canceldMouseInputValue;}
+        set {if (_canceldMouseInputValue == null) _canceldMouseInputValue = value;}
+    }
+    private Vector2 _startMouseInputValue;
+    public Vector2 startMouseInputValue {
+        get {return _startMouseInputValue;}
+        set {if (_startMouseInputValue == null) _startMouseInputValue = value;}
+    }
     private Vector2 _mouseInputValue;
     public Vector2 mouseInputValue {
         get {return _mouseInputValue;}
@@ -94,9 +104,9 @@ public class GameManager: MonoBehaviour
     {
         // InputFire設定
         _gameInputs = new GameInputs();
-        _gameInputs.Player.Fire.started += OnFire;
+        _gameInputs.Player.Fire.started += OnFireStarted;
         _gameInputs.Player.Fire.performed += OnFire;
-        _gameInputs.Player.Fire.canceled += OnFire;
+        _gameInputs.Player.Fire.canceled += OnFireCanceld;
 
         _gameInputs.Player.Move.started += OnMove;
         _gameInputs.Player.Move.performed += OnMove;
@@ -108,9 +118,15 @@ public class GameManager: MonoBehaviour
         _gameInputs.Enable();
     }
     //---- Input ----
+    public void OnFireStarted(InputAction.CallbackContext context) {
+        _startMouseInputValue = _mouseInputValue;
+        Debug.Log($"fire start:{_startMouseInputValue}");
+    }
     public void OnFire(InputAction.CallbackContext context) {
         _IsInputFire = true;
     }    
+    public void OnFireCanceld(InputAction.CallbackContext context) {
+    }
     public void InputFireClear()
     {
         _IsInputFire = false;
@@ -122,6 +138,7 @@ public class GameManager: MonoBehaviour
     // マウス座標が更新された時に通知するコールバック関数
     public void OnMove(InputAction.CallbackContext context) {
         _mouseInputValue = context.ReadValue<Vector2>();
+        //Debug.Log($"m-update:{_startMouseInputValue}");
     }
     public void OnMoveStick(InputAction.CallbackContext context) {
         _stickInputValue = context.ReadValue<Vector2>();
