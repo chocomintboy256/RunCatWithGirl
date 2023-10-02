@@ -161,35 +161,25 @@ public class Player : MonoBehaviour
     {
         Vector2 mouseInputValue = GameManager.ins.mouseInputValue;
         Vector3 mouseFromCenter = new Vector3(mouseInputValue.x - Screen.width/2, mouseInputValue.y - Screen.height/2, 0.0f);
-        Vector3 playerPosition = gameObject.transform.position;
-        Vector3 screenPlayerPosition = Camera.main.WorldToScreenPoint(playerPosition);
-        Vector3 screenCenterPosition = new Vector3(Screen.width/2, Screen.height/2, 0.0f);
-        Vector3 playerFromCenter = screenPlayerPosition - screenCenterPosition;
-        // Vector3 v3 = new Vector3(mouseInputValue.x + centerToPlayer.x, mouseInputValue.y + centerToPlayer.y, 1.0f);
-        //Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint();
-        //Vector3 rangeVec = worldMousePosition - playerPosition - new Vector3(0.0f, 0.0f, 1.5f);
-        Vector3 rangeVec = mouseFromCenter - playerFromCenter;
-        var tan = Math.Atan2(-rangeVec.y, rangeVec.x);
+        Vector2 startMouseInputValue = GameManager.ins.startMouseInputValue;
+        Vector3 startMouseFromCenter = new Vector3(startMouseInputValue.x - Screen.width/2, startMouseInputValue.y - Screen.height/2, 0.0f);
+
+        Vector3 rangeVec = startMouseFromCenter - mouseFromCenter;
+        var tan = Math.Atan2(rangeVec.y, -rangeVec.x);
         var angle = tan * (180/Math.PI);
-        // Debug.Log($"spp:{screenPlayerPosition} m:{mouseInputValue} / p:{playerPosition} r:{rangeVec} t:{tan} a:{angle} sw:{Screen.width} sh:{Screen.height}");
-        Debug.Log($"m:{mouseFromCenter} p:{playerFromCenter} r:{rangeVec} / t:{tan} a:{angle}");
+        //Debug.Log($"smc:{startMouseFromCenter} mc:{mouseFromCenter} r:{rangeVec} / t:{tan} a:{angle}");
         return tan;
     }
     double InputUnity()
     {
         Vector2 mouseInputValue = GameManager.ins.mouseInputValue;
-        Vector3 playerPosition = gameObject.transform.position;
-        Vector3 CameraPosition = Camera.main.transform.position;
-        Vector3 screenCameraPosition = Camera.main.WorldToScreenPoint(CameraPosition);
-        Vector3 screenPlayerPosition = Camera.main.WorldToScreenPoint(playerPosition);
-        Vector3 screenPosition = screenPlayerPosition - new Vector3(Screen.width/2, Screen.height/2, 0.0f);
-        Vector3 v3 = new Vector3(mouseInputValue.x + screenPosition.x, mouseInputValue.y + screenPosition.y, 1.0f);
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(v3);
-        Vector3 rangeVec = worldMousePosition - playerPosition - new Vector3(0.0f, 0.0f, 1.5f);
-        rangeVec.y = 0.0f;
-        var tan = Math.Atan2(-rangeVec.z, rangeVec.x);
+        Vector3 mouseFromCenter = new Vector3(mouseInputValue.x - Screen.width/2, mouseInputValue.y - Screen.height/2, 0.0f);
+        Vector2 startMouseInputValue = GameManager.ins.startMouseInputValue;
+        Vector3 startMouseFromCenter = new Vector3(startMouseInputValue.x - Screen.width/2, startMouseInputValue.y - Screen.height/2, 0.0f);
+        Vector3 rangeVec = startMouseFromCenter - mouseFromCenter;
+        var tan = Math.Atan2(rangeVec.y, -rangeVec.x);
         var angle = tan * (180/Math.PI);
-        // Debug.Log($"cp:{CameraPosition} scp:{screenCameraPosition} spp:{screenPlayerPosition} sp:{screenPosition} m:{_mouseInputValue} v3: {v3} \nw: {worldMousePosition} p:{playerPosition} icp:{_initCameraPos} r:{rangeVec} t:{tan} a:{angle}");
+        //Debug.Log($"smc:{startMouseFromCenter} mc:{mouseFromCenter} r:{rangeVec} / t:{tan} a:{angle}");
         return tan;
     }
     double GetInputTangent(INPUT_TYPE type)
