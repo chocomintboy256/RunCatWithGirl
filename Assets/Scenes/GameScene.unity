@@ -1293,6 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabFance: {fileID: 35461223968575316, guid: cc84b0a9e68231d4da6adffb9e67ec75, type: 3}
+  StartFlag: 0
   Score: 0
   GameStartTime: 60
   GameNowTime: 60

@@ -27,6 +27,7 @@ public class Game: MonoBehaviour
     int FanceHeight = 10;
     bool br = true;
 
+    public bool StartFlag = false;
     public int Score = 0;
     public int GameStartTime = 60;
     public int GameNowTime = 60;
@@ -49,12 +50,17 @@ public class Game: MonoBehaviour
     [System.Obsolete]
     void Start()
     {
+        CameraDistance = GameCam.gameObject.transform.position;
+        if (player == null) player = FindObjectOfType<Player>();
+        TextDoTween.EffectStageStartCountDown(comp);
+    }
+    void comp() 
+    {
+        StartFlag = true;
         player.NextAction(Player.ACTIONMODE.Run);
         foreach (var animal in ins.animals) 
             animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
 
-        CameraDistance = GameCam.gameObject.transform.position;
-        if (player == null) player = FindObjectOfType<Player>();
         if (animals.Count == 0) {
             var tmp = FindObjectsOfType<Animal>();
             foreach(var animal in tmp) animals.Add(animal.gameObject);
@@ -81,9 +87,11 @@ public class Game: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (br) {br=false; CreateFance();}
+        if (!StartFlag) return; 
+
         GameCameraMove();
         CatchUpAnimal();
-        if (br) {br=false; CreateFance();}
         TimerCountDown();
         if (IsGameClear()) GameClear();
     }
@@ -95,6 +103,7 @@ public class Game: MonoBehaviour
     }
     void GameCameraMove() 
     {
+        // GameCam.transform.position = CameraDistance + player.gameObject.transform.position;
         GameCam.transform.position = CameraDistance + player.gameObject.transform.position;
     }
     void CatchUpAnimal()
