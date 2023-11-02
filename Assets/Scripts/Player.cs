@@ -195,17 +195,20 @@ public class Player : MonoBehaviour
         //   まず移動では速度を元に位置と角度を設定してる
         //   入力では角度を更新して、速度で状態変化を見てる
         //     ゲームパッドのレフトスティック中ボタンが押された or 加速と角度が0だったら停止
-        // タップしたら停止にしたい
+        // ★: タップしたら停止にしたい
+        //Debug.Log($"StandFlag: {StandFlag} / SpdFlag: {SpdFlag} / x:{Math.Abs(rangeVec.x)} / y:{Math.Abs(rangeVec.y)}");
 
-        if (
-          Gamepad.current != null && Gamepad.current.leftStickButton.isPressed || 
-          a_speed == 0.0 && tan == 0.0 ) {
-            NextAnimation("Idol");
-            //a_speed = 0.0f;
-            StandFlag = true;
-        } else if(tan != 0.0f && StandFlag) {
+        if(StandFlag && SpdFlag) {
+            Debug.Log($"Run");
             StandFlag = false;
             NextAnimation("Run");
+        } else if (
+          Gamepad.current != null && Gamepad.current.leftStickButton.isPressed || 
+          GameManager._ins.IsInputFire ||
+          a_speed == 0.0) {
+            NextAnimation("Idol");
+            a_speed = 0.0f;
+            StandFlag = true;
         }
     }
 }
