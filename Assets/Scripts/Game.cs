@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class Game: MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Game: MonoBehaviour
     bool br = true;
 
     public bool StartFlag = false;
+    public bool CameraMoveFlag = false;
     public int Score = 0;
     public int GameStartTime = 60;
     public int GameNowTime = 60;
@@ -50,11 +52,13 @@ public class Game: MonoBehaviour
     [System.Obsolete]
     void Start()
     {
-        CameraDistance = GameCam.gameObject.transform.position;
         if (player == null) player = FindObjectOfType<Player>();
-        TextDoTween.EffectStageStartCountDown(comp);
+        CameraDistance = GameCam.gameObject.transform.position;
+
+        // ステージ開始演出完了したらゲームをスタートする
+        TextDoTween.EffectStageStartCountDown(() => { GameStart(); });
     }
-    void comp() 
+    void GameStart()
     {
         StartFlag = true;
         player.NextAction(Player.ACTIONMODE.Run);
@@ -67,6 +71,17 @@ public class Game: MonoBehaviour
         }
         DispTime(GameNowTime);
         DispScore(Score);
+
+        // カメラ位置をプレイヤーの位置に近づける
+        DOVirtual.Float(from: 0.0f, to: 1.0f, duration: 1.0f, onVirtualUpdate: (tweenValue) =>
+        {
+            Vector3 pos = player.gameObject.transform.position;
+            Vector3 GoalPos = new Vector3(pos.x, CameraDistance.y, pos.z);
+            Vector3 StartPos = CameraDistance;
+            float x = StartPos.x + ((GoalPos.x - StartPos.x) * tweenValue);
+            float z = StartPos.z + ((GoalPos.z - StartPos.z) * tweenValue);
+            GameCam.transform.position = new Vector3( x, CameraDistance.y, z);
+        }).OnComplete(() => { CameraMoveFlag = true; });
     }
     void CreateFance()
     {
@@ -103,8 +118,8 @@ public class Game: MonoBehaviour
     }
     void GameCameraMove() 
     {
-        // GameCam.transform.position = CameraDistance + player.gameObject.transform.position;
-        GameCam.transform.position = CameraDistance + player.gameObject.transform.position;
+        Vector3 pos = player.gameObject.transform.position;
+        if (CameraMoveFlag) GameCam.transform.position = new Vector3(pos.x, CameraDistance.y, pos.z);
     }
     void CatchUpAnimal()
     {
