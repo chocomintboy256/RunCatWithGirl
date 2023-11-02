@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     {
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
          switch (GameManager.GameMode) {
             case GameManager.GAMEMODE.TITLE:
@@ -157,39 +157,34 @@ public class Player : MonoBehaviour
         transform.position += a_speed * transform.forward * Time.deltaTime;
         transform.rotation = Quaternion.Slerp(transform.rotation, toRot, AccRotSpeed * Time.deltaTime);
     }
-    double GetTouchTangent()
-    {
-        Vector2 nowValue = GameManager.ins.mouseInputValue;
-        Vector2 startValue = GameManager.ins.startMouseInputValue;
-        Vector3 nowValueFromCenter = new Vector3(nowValue.x - Screen.width/2, nowValue.y - Screen.height/2, 0.0f);
-        Vector3 startValueFromCenter = new Vector3(startValue.x - Screen.width/2, startValue.y - Screen.height/2, 0.0f);
-
-        Vector3 rangeVec = startValueFromCenter - nowValueFromCenter;
-        var tan = Math.Atan2(rangeVec.y, -rangeVec.x);
-        //var angle = tan * (180/Math.PI);
-        //Debug.Log($"smc:{startMouseFromCenter} mc:{mouseFromCenter} r:{rangeVec} / t:{tan} a:{angle}");
-        return tan;
-    }
-    double GetPadTangent()
-    {
-        Vector2 stickInputValue = GameManager.ins.stickInputValue;
-        var tan = Math.Atan2(-stickInputValue.y, stickInputValue.x);                   // 入力からタンジェント取得
-        //Debug.Log($"x: {stickInputValue.x} y: {stickInputValue.y} tan: {tan}");
-        return tan;
-    }
-    double GetInputTangent()
+    Vector2 GetInputVector()
     {
         INPUT_TYPE type = GameManager._ins.IsInputGamePad() ? INPUT_TYPE.PAD : INPUT_TYPE.MOUSE;
-        double tan = 0.0;
+        Vector2 rangeVec = Vector2.zero;
         switch (type) {
-            case INPUT_TYPE.MOUSE: tan = GetTouchTangent(); break;
-            case INPUT_TYPE.PAD:   tan = GetPadTangent();   break;
+          case INPUT_TYPE.MOUSE: 
+            Vector2 nowValue = GameManager.ins.mouseInputValue;
+            Vector2 startValue = GameManager.ins.startMouseInputValue;
+            Vector2 nowValueFromCenter = new Vector2(nowValue.x - Screen.width/2, nowValue.y - Screen.height/2);
+            Vector2 startValueFromCenter = new Vector2(startValue.x - Screen.width/2, startValue.y - Screen.height/2);
+
+            rangeVec = startValueFromCenter - nowValueFromCenter;
+            rangeVec = new Vector2(-rangeVec.x, rangeVec.y);
+            break;
+
+          case INPUT_TYPE.PAD:
+            Vector2 stickInputValue = GameManager.ins.stickInputValue;
+            rangeVec = new Vector2(stickInputValue.x, -stickInputValue.y);
+            break;
         }
-        return tan;
+        return rangeVec;
     }
     void InputRun()
     {
-        double tan = GetInputTangent();
+        Vector2 rangeVec = GetInputVector();
+
+        bool SpdFlag = Math.Abs(rangeVec.x) > 1.0f || Math.Abs(rangeVec.y) > 1.0f;  // 離した距離が1.0f以上なら移動フラグを立てるゆるい判定
+        double tan = Math.Atan2(rangeVec.y, rangeVec.x);                 // Vector2から角度取得
         float oldAngle = nextAngle;                                      // 今の角度を旧角度に記録
         nextAngle = (float)(tan * Mathf.Rad2Deg + 90.0f);                // 進行方向取得
         toRot = tan == 0.0f ? transform.rotation : Quaternion.Euler(0, nextAngle, 0); //  EulerをQuaternionへ
