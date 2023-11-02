@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
@@ -62,12 +60,13 @@ public class Game: MonoBehaviour
     {
         StartFlag = true;
         player.NextAction(Player.ACTIONMODE.Run);
-        foreach (var animal in ins.animals) 
+        foreach (var animal in ins.animals)
             animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
 
-        if (animals.Count == 0) {
+        if (animals.Count == 0)
+        {
             var tmp = FindObjectsOfType<Animal>();
-            foreach(var animal in tmp) animals.Add(animal.gameObject);
+            foreach (var animal in tmp) animals.Add(animal.gameObject);
         }
         DispTime(GameNowTime);
         DispScore(Score);
