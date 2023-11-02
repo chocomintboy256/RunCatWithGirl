@@ -157,58 +157,54 @@ public class Player : MonoBehaviour
         transform.position += a_speed * transform.forward * Time.deltaTime;
         transform.rotation = Quaternion.Slerp(transform.rotation, toRot, AccRotSpeed * Time.deltaTime);
     }
-    double InputMobile()
+    double GetTouchTangent()
     {
-        Vector2 mouseInputValue = GameManager.ins.mouseInputValue;
-        Vector3 mouseFromCenter = new Vector3(mouseInputValue.x - Screen.width/2, mouseInputValue.y - Screen.height/2, 0.0f);
-        Vector2 startMouseInputValue = GameManager.ins.startMouseInputValue;
-        Vector3 startMouseFromCenter = new Vector3(startMouseInputValue.x - Screen.width/2, startMouseInputValue.y - Screen.height/2, 0.0f);
+        Vector2 nowValue = GameManager.ins.mouseInputValue;
+        Vector2 startValue = GameManager.ins.startMouseInputValue;
+        Vector3 nowValueFromCenter = new Vector3(nowValue.x - Screen.width/2, nowValue.y - Screen.height/2, 0.0f);
+        Vector3 startValueFromCenter = new Vector3(startValue.x - Screen.width/2, startValue.y - Screen.height/2, 0.0f);
 
-        Vector3 rangeVec = startMouseFromCenter - mouseFromCenter;
+        Vector3 rangeVec = startValueFromCenter - nowValueFromCenter;
         var tan = Math.Atan2(rangeVec.y, -rangeVec.x);
-        var angle = tan * (180/Math.PI);
+        //var angle = tan * (180/Math.PI);
         //Debug.Log($"smc:{startMouseFromCenter} mc:{mouseFromCenter} r:{rangeVec} / t:{tan} a:{angle}");
         return tan;
     }
-    double InputUnity()
+    double GetPadTangent()
     {
-        Vector2 mouseInputValue = GameManager.ins.mouseInputValue;
-        Vector3 mouseFromCenter = new Vector3(mouseInputValue.x - Screen.width/2, mouseInputValue.y - Screen.height/2, 0.0f);
-        Vector2 startMouseInputValue = GameManager.ins.startMouseInputValue;
-        Vector3 startMouseFromCenter = new Vector3(startMouseInputValue.x - Screen.width/2, startMouseInputValue.y - Screen.height/2, 0.0f);
-        Vector3 rangeVec = startMouseFromCenter - mouseFromCenter;
-        var tan = Math.Atan2(rangeVec.y, -rangeVec.x);
-        var angle = tan * (180/Math.PI);
-        //Debug.Log($"smc:{startMouseFromCenter} mc:{mouseFromCenter} r:{rangeVec} / t:{tan} a:{angle}");
+        Vector2 stickInputValue = GameManager.ins.stickInputValue;
+        var tan = Math.Atan2(-stickInputValue.y, stickInputValue.x);                   // 入力からタンジェント取得
+        //Debug.Log($"x: {stickInputValue.x} y: {stickInputValue.y} tan: {tan}");
         return tan;
     }
-    double GetInputTangent(INPUT_TYPE type)
+    double GetInputTangent()
     {
+        INPUT_TYPE type = GameManager._ins.IsInputGamePad() ? INPUT_TYPE.PAD : INPUT_TYPE.MOUSE;
         double tan = 0.0;
         switch (type) {
-            case INPUT_TYPE.MOUSE:
-                tan = PlatformInfo.IsMobile() ?
-                    InputMobile() :
-                    InputUnity();
-                break;
-            case INPUT_TYPE.PAD:
-                Vector2 stickInputValue = GameManager.ins.stickInputValue;
-                tan = Math.Atan2(-stickInputValue.y, stickInputValue.x);                   // 入力からタンジェント取得
-                Debug.Log($"x: {stickInputValue.x} y: {stickInputValue.y} tan: {tan}");
-                break;
-       }
+            case INPUT_TYPE.MOUSE: tan = GetTouchTangent(); break;
+            case INPUT_TYPE.PAD:   tan = GetPadTangent();   break;
+        }
         return tan;
     }
     void InputRun()
     {
-        double tan = GetInputTangent(GameManager._ins.IsInputGamePad() ? INPUT_TYPE.PAD : INPUT_TYPE.MOUSE);
+        double tan = GetInputTangent();
         float oldAngle = nextAngle;                                      // 今の角度を旧角度に記録
         nextAngle = (float)(tan * Mathf.Rad2Deg + 90.0f);                // 進行方向取得
         toRot = tan == 0.0f ? transform.rotation : Quaternion.Euler(0, nextAngle, 0); //  EulerをQuaternionへ
         float dist = Math.Abs(Math.Abs(nextAngle) - Math.Abs(oldAngle)); // 角度距離取得
         if (dist >= ROTATION_BRAKE) a_speed = 0.0f;                      // 角度距離が15度超えてたら加速をなしにする
 
-        if (Gamepad.current != null && Gamepad.current.leftStickButton.isPressed || a_speed == 0.0 && tan == 0.0) {
+        // 今のプログラムの仕様
+        //   まず移動では速度を元に位置と角度を設定してる
+        //   入力では角度を更新して、速度で状態変化を見てる
+        //     ゲームパッドのレフトスティック中ボタンが押された or 加速と角度が0だったら停止
+        // タップしたら停止にしたい
+
+        if (
+          Gamepad.current != null && Gamepad.current.leftStickButton.isPressed || 
+          a_speed == 0.0 && tan == 0.0 ) {
             NextAnimation("Idol");
             //a_speed = 0.0f;
             StandFlag = true;
