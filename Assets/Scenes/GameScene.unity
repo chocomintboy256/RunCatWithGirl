@@ -956,7 +956,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.5, z: -0.74}
 --- !u!54 &775020468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1294,6 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabFance: {fileID: 35461223968575316, guid: cc84b0a9e68231d4da6adffb9e67ec75, type: 3}
   StartFlag: 0
+  CameraMoveFlag: 0
   Score: 0
   GameStartTime: 60
   GameNowTime: 60
@@ -1464,7 +1465,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.5, z: -0.67}
 --- !u!54 &1146274016
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2386,7 +2387,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.5, z: -0.6}
 --- !u!54 &2093349968
 Rigidbody:
   m_ObjectHideFlags: 0
