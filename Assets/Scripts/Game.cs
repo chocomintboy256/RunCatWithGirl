@@ -127,7 +127,7 @@ public class Game: MonoBehaviour
                 (compEventNameFromFBX) => {
                     player.NextAction(Player.ACTIONMODE.Run);
                 });
-            GameObject target = GetNearestTarget(player.targets);   // 一番近いターゲット取得
+            GameObject target = GetNearestTarget(player.gameObject, player.targets);   // 一番近いターゲット取得
             if (target == null) return;
             Animal animal = target.GetComponent<Animal>();          
             if (animal.ActionMode == Animal.ACTIONMODE.Up) return;  // すでに持ち上がっていたらやめ
@@ -162,11 +162,11 @@ public class Game: MonoBehaviour
         ScoreText.text = $"集めた数: {score}";
     }
  
-    GameObject GetNearestTarget(List<GameObject> list)
+    GameObject GetNearestTarget(GameObject src, List<GameObject> list)
     {
         if (list.Count == 0) return null;
+        Vector3 p1 = src.transform.position;
         list.Sort((a,b) => {
-            Vector3 p1 = player.gameObject.transform.position;
             return Vector3.Distance(p1, a.transform.position) <= 
                     Vector3.Distance(p1, b.transform.position) ? -1 : 1;
         });
