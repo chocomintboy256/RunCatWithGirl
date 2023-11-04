@@ -169,12 +169,12 @@ public class Player : MonoBehaviour
             Vector2 startValueFromCenter = new Vector2(startValue.x - Screen.width/2, startValue.y - Screen.height/2);
 
             rangeVec = startValueFromCenter - nowValueFromCenter;
-            rangeVec = new Vector2(-rangeVec.x, rangeVec.y);
+            rangeVec = new Vector2((rangeVec.x == 0.0f ? 0.0f : -rangeVec.x), rangeVec.y);
             break;
 
           case INPUT_TYPE.PAD:
-            Vector2 stickInputValue = GameManager.ins.stickInputValue;
-            rangeVec = new Vector2(stickInputValue.x, -stickInputValue.y);
+            rangeVec = GameManager.ins.stickInputValue;
+            rangeVec = new Vector2(rangeVec.x, (rangeVec.y == 0.0f ? 0.0f : -rangeVec.y));
             break;
         }
         return rangeVec;
