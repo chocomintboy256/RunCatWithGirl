@@ -165,10 +165,9 @@ public class Game: MonoBehaviour
     GameObject GetNearestTarget(GameObject src, List<GameObject> list)
     {
         if (list.Count == 0) return null;
-        Vector3 p1 = src.transform.position;
         list.Sort((a,b) => {
-            return Vector3.Distance(p1, a.transform.position) <= 
-                    Vector3.Distance(p1, b.transform.position) ? -1 : 1;
+            return Vector3.Distance(src.transform.position, a.transform.position) <= 
+                    Vector3.Distance(src.transform.position, b.transform.position) ? -1 : 1;
         });
         return list[0];
     }
