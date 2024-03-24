@@ -36,6 +36,7 @@ public class Game: MonoBehaviour
     public TextMeshProUGUI TimerText;
     public Camera GameCam;
     public Camera GameUICam;
+    public Camera MinimapCam;
     public Vector3 CameraDistance;
     public Player player;
     public List<GameObject> animals;
@@ -54,7 +55,14 @@ public class Game: MonoBehaviour
         CameraDistance = GameCam.gameObject.transform.position;
 
         // ステージ開始演出完了したらゲームをスタートする
+        GameInit();
         TextDoTween.EffectStageStartCountDown(() => { GameStart(); });
+    }
+    void GameInit()
+    {
+        DispTime(GameNowTime);
+        DispScore(Score);
+        GameCameraMove();
     }
     void GameStart()
     {
@@ -68,10 +76,8 @@ public class Game: MonoBehaviour
             var tmp = FindObjectsOfType<Animal>();
             foreach (var animal in tmp) animals.Add(animal.gameObject);
         }
-        DispTime(GameNowTime);
-        DispScore(Score);
-
         // カメラ位置をプレイヤーの位置に近づける
+        /*
         DOVirtual.Float(from: 0.0f, to: 1.0f, duration: 1.0f, onVirtualUpdate: (tweenValue) =>
         {
             Vector3 pos = player.gameObject.transform.position;
@@ -81,6 +87,7 @@ public class Game: MonoBehaviour
             float z = StartPos.z + ((GoalPos.z - StartPos.z) * tweenValue);
             GameCam.transform.position = new Vector3( x, CameraDistance.y, z);
         }).OnComplete(() => { CameraMoveFlag = true; });
+        */ CameraMoveFlag = true;
     }
     void CreateFance()
     {
@@ -118,7 +125,9 @@ public class Game: MonoBehaviour
     void GameCameraMove() 
     {
         Vector3 pos = player.gameObject.transform.position;
-        if (CameraMoveFlag) GameCam.transform.position = new Vector3(pos.x, CameraDistance.y, pos.z);
+        // if (CameraMoveFlag) GameCam.transform.position = new Vector3(pos.x, CameraDistance.y, pos.z);
+        if (CameraMoveFlag) GameCam.transform.position = new Vector3(pos.x, CameraDistance.y, pos.z - 1.6f);
+        MinimapCam.transform.position = new Vector3(pos.x, MinimapCam.transform.position.y, pos.z);
     }
     void CatchUpAnimal()
     {
