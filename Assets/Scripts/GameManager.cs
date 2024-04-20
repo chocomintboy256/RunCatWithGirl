@@ -9,6 +9,7 @@ using TMPro;
 public class GameManager: MonoBehaviour
 {
     public static float fps;
+    public static int StageNum = 1;
     public enum GAMEMODE {
         TITLE,
         PLAY,
@@ -144,6 +145,13 @@ public class GameManager: MonoBehaviour
         _stickInputValue = context.ReadValue<Vector2>();
     }
     //---- GameMode ---- 
+    public static void NextPage(string nextSceneName) {
+        SceneManager.LoadScene(nextSceneName, LoadSceneMode.Additive); 
+    }
+    public static void BackPage(string unloadSceneName)
+    {
+        SceneManager.UnloadSceneAsync(unloadSceneName); 
+    }
     public static void NextGameMode(GAMEMODE nextGameMode) {
         GameMode = nextGameMode;
         switch (GameMode) {

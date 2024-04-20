@@ -23,8 +23,9 @@ public class Title : MonoBehaviour
     public void OnClick(GameObject btn)
     {
         switch (btn.name) {
-            case "ButtonStart": 
-                GameManager.NextGameMode(GameManager.GAMEMODE.PLAY);
+            case "ButtonStart":
+                //GameManager.NextGameMode(GameManager.GAMEMODE.PLAY);
+                GameManager.NextPage("StageSelectScene");
                 break;
             case "ButtonRule":
             case "ButtonCollection":
