@@ -69,13 +69,17 @@ public class GameManager: MonoBehaviour
     public Vector3 CameraDistance;
     public Player player;
     public List<GameObject> animals;
+    public List<int> stageClearAnimalIDs;
     private List<Hashtable> GoData = new List<Hashtable>();
 
     // Start is called before the first frame update
     void Awake()
     {
         ins = this;
+
+
         fps = (float)(1.0f / Time.fixedDeltaTime);
+        stageClearAnimalIDs = new List<int>();
         GameManager.SeneInitGameMode = getActiveSceneGameMode();
     }
     private GAMEMODE getActiveSceneGameMode() {
