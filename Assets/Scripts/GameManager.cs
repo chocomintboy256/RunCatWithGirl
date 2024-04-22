@@ -27,7 +27,12 @@ public class GameManager: MonoBehaviour
     public static GameManager ins {
         get {return _ins;}
         set {
-            if (!_ins) _ins = value;
+            if (_ins != null) {
+                Destroy(value.gameObject);
+                return;
+            }
+            _ins = value;
+            DontDestroyOnLoad(_ins.gameObject);
         }
     }
     //---- input ----
