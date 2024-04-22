@@ -63,6 +63,7 @@ public class GameManager: MonoBehaviour
     }
  
     public int Score = 0;
+    public int TotalScore = 0;
     public int GameStartTime = 60;
     public int GameNowTime = 60;
     public float timer = 0.0f;
