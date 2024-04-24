@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StageSelectScene.unity
     guid: 2b42d593b36457d49a25d9913863f326
   - enabled: 1
+    path: Assets/Scenes/ExchangeScene.unity
+    guid: 9a87ded9f894b1b46baaeb649cf0eb4e
+  - enabled: 1
+    path: Assets/Scenes/ConditionScene.unity
+    guid: c72a8b0d08383aa4cabb0907e6264975
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1

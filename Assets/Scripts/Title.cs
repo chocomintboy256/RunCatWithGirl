@@ -32,6 +32,12 @@ public class Title : MonoBehaviour
                 //GameManager.NextGameMode(GameManager.GAMEMODE.PLAY);
                 GameManager.NextPage("StageSelectScene");
                 break;
+            case "ButtonExchange":
+                GameManager.NextPage("ExchangeScene");
+                break;
+            case "ButtonCondition":
+                GameManager.NextPage("ConditionScene");
+                break;
             case "ButtonRule":
             case "ButtonCollection":
             case "ButtonOption":
