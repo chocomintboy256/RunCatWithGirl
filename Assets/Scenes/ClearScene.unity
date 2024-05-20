@@ -217,12 +217,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef26b2c508296d498efeecb6b5aa7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &160258750
 Animator:
   serializedVersion: 5
@@ -521,12 +524,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aae84b09cc8ed649a4c01d5cb85b49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &282504854
 Animator:
   serializedVersion: 5
@@ -850,12 +856,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef26b2c508296d498efeecb6b5aa7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &435266855
 Animator:
   serializedVersion: 5
@@ -1152,12 +1161,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aae84b09cc8ed649a4c01d5cb85b49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &775020465
 Animator:
   serializedVersion: 5
@@ -1278,6 +1290,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0a95cb39fd784b64c9c70da21ae047d6, type: 3}
       propertyPath: m_Name
       value: cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0a95cb39fd784b64c9c70da21ae047d6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a95cb39fd784b64c9c70da21ae047d6, type: 3}
@@ -1509,12 +1525,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef26b2c508296d498efeecb6b5aa7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &909059733
 Animator:
   serializedVersion: 5
@@ -1664,6 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabFance: {fileID: 35461223968575316, guid: cc84b0a9e68231d4da6adffb9e67ec75, type: 3}
+  GameObjectAnimal: {fileID: 0}
   StartFlag: 0
   CameraMoveFlag: 0
   Score: 0
@@ -1678,8 +1698,6 @@ MonoBehaviour:
   CameraDistance: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   animals: []
-  allAnimals: []
-  animalIDs: 
   stageClearAnimalIDs: 
 --- !u!114 &963194230
 MonoBehaviour:
@@ -2041,59 +2059,71 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1 &1110098110
-GameObject:
+--- !u!1001 &1108974112
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1110098112}
-  - component: {fileID: 1110098111}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1110098111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110098110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498f901a6de4b254ab25b46053542aa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Score: 0
-  TotalScore: 0
-  GameStartTime: 60
-  GameNowTime: 60
-  timer: 0
-  CameraDistance: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
-  animals: []
-  stageClearAnimalIDs: 
---- !u!4 &1110098112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110098110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4575324648537898324, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519403, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519412, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: animals.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7548878932624519413, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bfc6ef4f729016c408d1ede7efda87d5, type: 3}
 --- !u!1 &1146274011 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87657c0b2bd52444b821dc6483fc6363, type: 3}
@@ -2111,12 +2141,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef26b2c508296d498efeecb6b5aa7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &1146274013
 Animator:
   serializedVersion: 5
@@ -2339,12 +2372,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef26b2c508296d498efeecb6b5aa7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &1180299095
 Animator:
   serializedVersion: 5
@@ -4618,6 +4654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: panda
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23e4d189c39d3e74db1a5f1d846010bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23e4d189c39d3e74db1a5f1d846010bc, type: 3}
 --- !u!1 &1600232905
@@ -5374,12 +5414,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aae84b09cc8ed649a4c01d5cb85b49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &1675519885
 Animator:
   serializedVersion: 5
@@ -5860,6 +5903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bear
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87657c0b2bd52444b821dc6483fc6363, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87657c0b2bd52444b821dc6483fc6363, type: 3}
 --- !u!1 &2093349963 stripped
@@ -5879,12 +5926,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef26b2c508296d498efeecb6b5aa7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalDataId: 0
+  fbx: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
   animator: {fileID: 0}
+  motions: []
 --- !u!95 &2093349965
 Animator:
   serializedVersion: 5

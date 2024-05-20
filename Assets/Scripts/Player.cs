@@ -92,8 +92,6 @@ public class Player : MonoBehaviour
         }
     }
     public void PubAction() {
-        int aa = 1;
-        aa = aa + 1;
         Action();
     }
     private void Action() {

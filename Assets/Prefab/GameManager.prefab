@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7548878932624519413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7548878932624519403}
+  - component: {fileID: 7548878932624519412}
+  - component: {fileID: 4575324648537898324}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7548878932624519403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548878932624519413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7548878932624519412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548878932624519413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498f901a6de4b254ab25b46053542aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: 0
+  TotalScore: 0
+  GameStartTime: 60
+  GameNowTime: 60
+  timer: 0
+  CameraDistance: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
+  animals: []
+  stageClearAnimalIDs: 
+--- !u!114 &4575324648537898324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548878932624519413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac9395588f81f440947d64b3b8e7ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AnimalContainer: {fileID: 320701652016473969, guid: f2895826e4967a347a7c8aba2fe418c3, type: 3}
+  AnimalFbxContainers:
+  - {fileID: 4044608045390405835, guid: 781149fded502f24fabb8b2f9a8af6bb, type: 3}
+  - {fileID: 3102170991362072758, guid: 73a44c4d91ac151448cb43961d15ab99, type: 3}
+  - {fileID: 5543455976244762692, guid: da05821624fc2224b9efcb2ee66530c9, type: 3}

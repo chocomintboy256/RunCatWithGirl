@@ -21,12 +21,14 @@ public class Game : MonoBehaviour
         get { return _gameInputs; }
         set { if (_gameInputs == null) _gameInputs = value; }
     }
+    public Minimap minimap;
     public GameObject PrefabFance;
     float FanceTileWidth = 1.2f;
     int FanceWidth = 15;
     int FanceHeight = 10;
     bool br = true;
 
+    public GameObject GameObjectAnimal; //生成するAnimaのゲームオブジェクトl
     public bool StartFlag = false;
     public bool CameraMoveFlag = false;
     public int Score = 0;
@@ -41,72 +43,48 @@ public class Game : MonoBehaviour
     public Vector3 CameraDistance;
     public Player player;
     public List<GameObject> animals;
-    public List<GameObject> allAnimals;
-    public List<int> animalIDs;
+    //public List<GameObject> allAnimals;
+    //public List<int> animalIDs;
     public List<int> stageClearAnimalIDs;
-    public List<List<StageDataAnimal>> stageAnimalSets = new List<List<StageDataAnimal>>() { 
-        new List<StageDataAnimal>() { // 1-1
-            new StageDataAnimal(active: true, x: 0.09f, z: 4.04f),
-            new StageDataAnimal(active: true, x: -0.9292631f, z: 3.2077991f),
-            new StageDataAnimal(active: false, x: 0.4f, z: 3.34f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f)
-        }, new List<StageDataAnimal>() { // 1-2
-            new StageDataAnimal(active: true, x: 0.09f, z: 4.04f),
-            new StageDataAnimal(active: true, x: -0.9292631f, z: 3.2077991f),
-            new StageDataAnimal(active: true, x: 0.4f, z: 3.34f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-        }, new List<StageDataAnimal>() { // 1-3
-            new StageDataAnimal(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f),
-            new StageDataAnimal(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f),
-            new StageDataAnimal(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-        }, new List<StageDataAnimal>() { // 1-4
-            new StageDataAnimal(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f),
-            new StageDataAnimal(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f),
-            new StageDataAnimal(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*4.0f, z: 3.2077991f*4.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-         }, new List<StageDataAnimal>() { // 1-5
-            new StageDataAnimal(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f),
-            new StageDataAnimal(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f),
-            new StageDataAnimal(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*4.0f, z: 3.2077991f*4.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-            new StageDataAnimal(active: true, x: 0.4f*4.0f, z: 3.34f*4.0f),
-            new StageDataAnimal(active: false, x: 0.0f, z: 0.0f),
-         }, new List<StageDataAnimal>() { // 1-6
-            new StageDataAnimal(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f),
-            new StageDataAnimal(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f),
-            new StageDataAnimal(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f),
-            new StageDataAnimal(active: true, x: 0.09f*-8.0f, z: 4.04f*-8.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*4.0f, z: 3.2077991f*4.0f),
-            new StageDataAnimal(active: true, x: -0.9292631f*-8.0f, z: 3.2077991f*-8.0f),
-            new StageDataAnimal(active: true, x: 0.4f*4.0f, z: 3.34f*4.0f),
-            new StageDataAnimal(active: true, x: 0.4f*-8.0f, z: 3.34f*-8.0f),
+    public List<List<StageAnimalData>> stageAnimalDataSets = new List<List<StageAnimalData>>() { 
+        new List<StageAnimalData>() { // 1-1
+            new StageAnimalData(active: true, x: 0.09f, z: 4.04f, kind: Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f, z: 3.2077991f, kind: Animal.KIND.Bear),
+        }, new List<StageAnimalData>() { // 1-2
+            new StageAnimalData(active: true, x: 0.09f, z: 4.04f, kind: Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f, z: 3.2077991f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f, z: 3.34f, kind : Animal.KIND.Cat),
+        }, new List<StageAnimalData>() { // 1-3
+            new StageAnimalData(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f, kind: Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f, kind : Animal.KIND.Cat),
+            new StageAnimalData(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f, kind : Animal.KIND.Panda),
+        }, new List<StageAnimalData>() { // 1-4
+            new StageAnimalData(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f, kind : Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f, kind : Animal.KIND.Cat),
+            new StageAnimalData(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f  , kind : Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f*4.0f, z: 3.2077991f*4.0f, kind : Animal.KIND.Bear),
+         }, new List<StageAnimalData>() { // 1-5
+            new StageAnimalData(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f, kind : Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f, kind : Animal.KIND.Cat),
+            new StageAnimalData(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f, kind : Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: -0.9292631f*4.0f, z: 3.2077991f*4.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f*4.0f, z: 3.34f*4.0f, kind : Animal.KIND.Cat),
+         }, new List<StageAnimalData>() { // 1-6
+            new StageAnimalData(active: true, x: 0.09f*2.0f, z: 4.04f*2.0f, kind : Animal.KIND.Panda    ),
+            new StageAnimalData(active: true, x: -0.9292631f*2.0f, z: 3.2077991f*2.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f*2.0f, z: 3.34f*2.0f, kind : Animal.KIND.Cat),
+            new StageAnimalData(active: true, x: 0.09f*4.0f, z: 4.04f*4.0f, kind : Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: 0.09f*-8.0f, z: 4.04f*-8.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: -0.9292631f*4.0f, z: 3.2077991f*4.0f, kind : Animal.KIND.Cat),
+            new StageAnimalData(active: true, x: -0.9292631f*-8.0f, z: 3.2077991f*-8.0f, kind : Animal.KIND.Panda),
+            new StageAnimalData(active: true, x: 0.4f*4.0f, z: 3.34f*4.0f, kind : Animal.KIND.Bear),
+            new StageAnimalData(active: true, x: 0.4f*-8.0f, z: 3.34f*-8.0f, kind : Animal.KIND.Cat),
          }
     };
+
     private List<Hashtable> GoData = new List<Hashtable>();
     // Start is called before the first frame update
     void Awake()
@@ -135,18 +113,17 @@ public class Game : MonoBehaviour
     void SetupAnimals()
     {
         // ステージデータから動物たちの表示と位置を設定して、アクティブな動物一覧を取得する
-        StageDataAnimal[] sdAnimals = ins.stageAnimalSets[GameManager.StageNum-1].ToArray();
+        StageAnimalData[] sdAnimals = ins.stageAnimalDataSets[GameManager.StageNum-1].ToArray();
         animals = new List<GameObject>();
-        for (int i = 0; i < sdAnimals.Length; i++) { 
-            GameObject animal = allAnimals[i];
-            StageDataAnimal dAnimal = sdAnimals[i];
-            animal.SetActive(dAnimal.active);
-            animal.transform.position = new Vector3(dAnimal.x, animal.transform.position.y, dAnimal.z);
-            if (dAnimal.active)
-            {
-                animals.Add(animal);
-                animalIDs.Add(i+1);
-            }
+        for (int i = 0; i < sdAnimals.Length; i++) {
+            //GameObject animal = allAnimals[i];
+            StageAnimalData dAnimal = sdAnimals[i];
+            GameObject animal = Animal.InstanceWithInit(
+                kind: dAnimal.kind, 
+                vec3: new Vector3(dAnimal.x, 0.0f, dAnimal.z)
+            );
+            animals.Add(animal);
+            minimap.CreateMarker(animal);
         }
     }
     void GameStart()
@@ -154,7 +131,7 @@ public class Game : MonoBehaviour
         StartFlag = true;
         player.NextAction(Player.ACTIONMODE.Run);
         foreach (var animal in ins.animals)
-            animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Run);
+            animal.GetComponentInChildren<Animal>().NextAction(Animal.ACTIONMODE.Run);
 
         if (animals.Count == 0)
         {
@@ -221,23 +198,25 @@ public class Game : MonoBehaviour
     {
         if (player.targets.Count > 0 && GameManager.ins.IsInputFire) {
             player.NextAction(Player.ACTIONMODE.Up,                 // プレイヤーが拾うアクション
-                (compEventNameFromFBX) => {
+                (unityActionComplete) => {
                     player.NextAction(Player.ACTIONMODE.Run);
                 });
             GameObject target = GetNearestTarget(player.gameObject, player.targets);   // 一番近いターゲット取得
             if (target == null) return;
-            Animal animal = target.GetComponent<Animal>();          
+            Animal animal = target.GetComponentInChildren<Animal>();          
             if (animal.ActionMode == Animal.ACTIONMODE.Up) return;  // すでに持ち上がっていたらやめ
-            target.GetComponent<SphereCollider>().enabled = false;  // 持ち上げ処理に移行 ターゲットの当たり判定消す
+            target.GetComponentInChildren<SphereCollider>().enabled = false;  // 持ち上げ処理に移行 ターゲットの当たり判定消す
             animal.NextAction(Animal.ACTIONMODE.Up,                 // アニメーション設定
-                (compEventNameFromFBX) => {
-                    int ind  = allAnimals.FindIndex(x => x == target);
-                    int id  = ind + 1;
-                    animalIDs.Remove(ind);
-                    stageClearAnimalIDs.Add(id);
-                    animals.Remove(target);
+                (unityActionComplete) => {
+                    //int ind  = allAnimals.FindIndex(x => x == target);
+                    //int id  = ind + 1;
+                    //animalIDs.Remove(ind);
+                    GameObject animalContainer = target.transform.parent.gameObject;
+                    stageClearAnimalIDs.Add(animal.animalDataId);
+                    animals.Remove(animalContainer);
                     player.targets.Remove(target);
-                    Destroy(target);
+                    minimap.DestroyMarker(animalContainer);
+                    Destroy(animalContainer);
                     ScoreUp();
                 });
             target.transform.position = player.transform.position + (Vector3.forward / 1.5f);

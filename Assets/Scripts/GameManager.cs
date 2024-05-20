@@ -35,6 +35,7 @@ public class GameManager: MonoBehaviour
             DontDestroyOnLoad(_ins.gameObject);
         }
     }
+
     //---- input ----
     public GameInputs _gameInputs;
     public GameInputs gameInputs {
@@ -82,7 +83,7 @@ public class GameManager: MonoBehaviour
     void Awake()
     {
         ins = this;
-
+        if (ins != this ) return;
 
         fps = (float)(1.0f / Time.fixedDeltaTime);
         stageClearAnimalIDs = new List<int>();
@@ -102,8 +103,8 @@ public class GameManager: MonoBehaviour
         InitInput();
         GameMode = GameManager.SeneInitGameMode;
         player = FindObjectOfType<Player>();
-        var tmp = FindObjectsOfType<Animal>();
-        foreach(var animal in tmp) animals.Add(animal.gameObject);
+        //var tmp = FindObjectsOfType<Animal>();
+        //foreach(var animal in tmp) animals.Add(animal.gameObject);
     }
     // Update is called once per frame
     void LateUpdate()

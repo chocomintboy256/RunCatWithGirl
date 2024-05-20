@@ -14,7 +14,7 @@ public class Title : MonoBehaviour
     {
         player.NextAction(Player.ACTIONMODE.Idol);
         foreach (var animal in animals) 
-            animal.GetComponent<Animal>().NextAction(Animal.ACTIONMODE.Idol);
+            animal.GetComponentInChildren<Animal>().NextAction(Animal.ACTIONMODE.Idol);
         TotalScoreText.text = GameManager.ins.TotalScore > 0 ?
             $"ç°Ç‹Ç≈èWÇﬂÇΩêî: {GameManager.ins.TotalScore}" :
             $"";

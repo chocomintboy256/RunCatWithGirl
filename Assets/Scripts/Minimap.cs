@@ -1,12 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Minimap : MonoBehaviour
 {
     public GameObject Player;
-    public MinimapData[] maps;
+    public GameObject IconParent;
+    public GameObject IconTriangle;
+    public List<MinimapData> maps;
+
+    // マーカー作成
+    public GameObject CreateMarker(GameObject go)
+    {
+        GameObject tri = Instantiate(IconTriangle, Vector3.zero, Quaternion.identity, IconParent.transform);
+        GameObject icon = go.GetComponent<AnimalContainer>().IconMinimap;
+        maps.Add(new MinimapData(go: go, iconTri: tri, iconCube: icon));
+        return icon; // あとで変える
+    }
+    // マーカー削除
+    public void DestroyMarker(GameObject go)
+    {
+        MinimapData minimapData = maps.First(x => x.Go == go);
+        if (minimapData) maps.Remove(minimapData);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

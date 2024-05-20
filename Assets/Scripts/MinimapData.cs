@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class MinimapData : MonoBehaviour
 {
     public GameObject Go;
-    public Image IconTri;
+    public GameObject IconTri;
     public GameObject IconCube;
-    void Start()
+    public MinimapData(GameObject go, GameObject iconTri, GameObject iconCube)
     {
+        Go = go;
+        IconTri = iconTri;
+        IconCube = iconCube;
     }
+
+    //void Start() {}
 }

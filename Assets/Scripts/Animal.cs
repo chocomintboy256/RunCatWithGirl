@@ -1,10 +1,22 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
+using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 
-public class Animal: MonoBehaviour
+public class Animal : MonoBehaviour
 {
+    public int animalDataId;
+    //public GameObject fbxContainer;
+    public AnimalData animalData { get; set; }
+    public enum KIND {
+        Panda,
+        Bear,
+        Cat
+    }
     public enum ACTIONMODE {
         Idol,
         Run,
@@ -16,30 +28,40 @@ public class Animal: MonoBehaviour
     public event Action<string> CompleteHandler;
     public float _speed = 0.8f;
     public float speed {
-        get {return _speed;}
-        set {_speed = value;
+        get { return _speed; }
+        set { _speed = value;
         }
     }
     public const float ROT_NUM = 30.0f;
     public float rotSpeed = 3.0f;
     public Quaternion toRot;
-    public Animator animator;
-    public Dictionary<string, int> _AnimStateHash = new Dictionary<string, int>() {
-        {"Idol", Animator.StringToHash("Base Layer.アーマチュア|Idol")},
-        {"Run", Animator.StringToHash("Base Layer.アーマチュア|Run")},
-        {"Up", Animator.StringToHash("Base Layer.アーマチュア|Up")},
-        {"Rot", Animator.StringToHash("Base Layer.アーマチュア|Run")}
-    };
-    public Dictionary<string, int> AnimStateHash {
-        get { return _AnimStateHash; }
-        set { _AnimStateHash = value; }
-    }
+    private Animator animator;
+    public AnimationClip[] motions;
+    public Dictionary<string, AnimationClip> MotionNameToAnimationClip = new Dictionary<string, AnimationClip>() { };
+    private Regex nameReg = new Regex("panda|bear", RegexOptions.IgnoreCase);
 
-    private bool _AnimFlag = false;
     // Start is called before the first frame update
+    public static GameObject InstanceWithInit(KIND kind, Vector3 vec3 = default(Vector3), ACTIONMODE actionMode = ACTIONMODE.Run)
+    {
+        AnimalData ad = AnimalDataBase.AnimalMaster.First(x => x.kind == kind);
+        GameObject animalContainer = Instantiate(AnimalDataBase.AnimalContainer, vec3, Quaternion.identity);
+        GameObject animalFbxContainer = Instantiate(ad.fbx, Vector3.zero, Quaternion.identity, animalContainer.transform);
+        Animal animal = animalFbxContainer.GetComponent<Animal>();
+        animal.AnimalInit(ad, actionMode);
+        return animalContainer;
+    }
+    private void AnimalInit(AnimalData ad, ACTIONMODE actionMode)
+    {
+        animalDataId = ad.id;
+        AnimalFBX animalFBX = gameObject.GetComponentInChildren<AnimalFBX>();
+        animalFBX.AnimCompHandler += AnimationComplete;
+        NextAction(actionMode);
+    }
     public virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        //Instantiate(fbx, Vector3.zero, Quaternion.identity);
+        animator = GetComponentInChildren<Animator>();
+        //NextAction(ActionMode);
     }
     public virtual void Start()
     {
@@ -49,7 +71,7 @@ public class Animal: MonoBehaviour
     // Update is called once per frame
     public virtual void FixedUpdate()
     {
-        switch (GameManager.GameMode) {
+       switch (GameManager.GameMode) {
             case GameManager.GAMEMODE.TITLE: break;
             case GameManager.GAMEMODE.PLAY: Action(); break;
         }
@@ -108,21 +130,32 @@ public class Animal: MonoBehaviour
     }
     private void OnDestroy()
     {
+        GetComponentInChildren<AnimalFBX>().AnimCompHandler -= AnimationComplete;
         CancelInvoke();
     }
 
-    void AnimComp() {
-        if (_AnimFlag) return;
-        CompleteHandler?.Invoke("AnimComp");
-        _AnimFlag = true;
+    private void AnimationComplete() {
+        CompleteHandler?.Invoke("AnimationComplete");
     }
     private void NextAnimation(string label)
     {
-        if(animator) animator.Play(AnimStateHash[label], 0, 0.0f); 
+        if (animator)
+        {
+            animator.SetBool("RunBool", false); 
+            animator.SetBool("RotBool", false); 
+            switch(label) { 
+                case "Idol": 
+                case "Up": 
+                    animator.SetTrigger("UpTrigger"); 
+                   break;
+                case "Run": animator.SetBool("RunBool", true); break;
+                case "Rot": animator.SetBool("RotBool", true); break;
+            }
+        }
     }
     private void NextAnimation(string label, Action<string> comp)
     {
-        if(animator) animator.Play(AnimStateHash[label], 0, 0.0f); 
+        NextAnimation(label);
         CompleteHandler += comp;
     }
 }
