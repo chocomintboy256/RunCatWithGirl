@@ -68,6 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AnimalContainer: {fileID: 320701652016473969, guid: f2895826e4967a347a7c8aba2fe418c3, type: 3}
   AnimalFbxContainers:
-  - {fileID: 4044608045390405835, guid: 781149fded502f24fabb8b2f9a8af6bb, type: 3}
-  - {fileID: 3102170991362072758, guid: 73a44c4d91ac151448cb43961d15ab99, type: 3}
-  - {fileID: 5543455976244762692, guid: da05821624fc2224b9efcb2ee66530c9, type: 3}
+  - {fileID: 6318834036575029808, guid: 49a2a6851699a5a429a560853ba419a4, type: 3}
+  - {fileID: 6318834036575029808, guid: a92bbe0e9247cf64783ff111199baf47, type: 3}
+  - {fileID: 6318834036575029808, guid: 6edfc695a43a03b49ad74c2e8337a0ee, type: 3}

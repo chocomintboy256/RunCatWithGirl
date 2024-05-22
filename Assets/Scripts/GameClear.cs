@@ -80,7 +80,7 @@ public class GameClear: MonoBehaviour
         for (int i = 0; i < clearStageAnimalMax; i++) {
             int id = GameManager.ins.stageClearAnimalIDs[i];
             AnimalData ad = AnimalDataBase.AnimalMaster.First(x => x.id == id);
-            GameObject animal = Animal.InstanceWithInit(kind: ad.kind, vec3: AnimalPosData[i]);
+            GameObject animal = Animal.InstanceWithInit(kind: ad.kind, vec3: AnimalPosData[i], actionMode: Animal.ACTIONMODE.Appeal);
             animals.Add(animal);
         }
         

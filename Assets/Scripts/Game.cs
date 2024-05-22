@@ -120,7 +120,9 @@ public class Game : MonoBehaviour
             StageAnimalData dAnimal = sdAnimals[i];
             GameObject animal = Animal.InstanceWithInit(
                 kind: dAnimal.kind, 
-                vec3: new Vector3(dAnimal.x, 0.0f, dAnimal.z)
+                vec3: new Vector3(dAnimal.x, 0.0f, dAnimal.z), 
+                actionMode: Animal.ACTIONMODE.Run, 
+                minimapMarkerFg: true
             );
             animals.Add(animal);
             minimap.CreateMarker(animal);
@@ -211,7 +213,8 @@ public class Game : MonoBehaviour
                     //int ind  = allAnimals.FindIndex(x => x == target);
                     //int id  = ind + 1;
                     //animalIDs.Remove(ind);
-                    GameObject animalContainer = target.transform.parent.gameObject;
+                    // GameObject animalContainer = target.transform.parent.gameObject;
+                    GameObject animalContainer = target;
                     stageClearAnimalIDs.Add(animal.animalDataId);
                     animals.Remove(animalContainer);
                     player.targets.Remove(target);

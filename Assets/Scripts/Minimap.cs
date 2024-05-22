@@ -15,7 +15,7 @@ public class Minimap : MonoBehaviour
     public GameObject CreateMarker(GameObject go)
     {
         GameObject tri = Instantiate(IconTriangle, Vector3.zero, Quaternion.identity, IconParent.transform);
-        GameObject icon = go.GetComponent<AnimalContainer>().IconMinimap;
+        GameObject icon = go.GetComponent<Animal>().IconMinimap;
         maps.Add(new MinimapData(go: go, iconTri: tri, iconCube: icon));
         return icon; // ‚ ‚Æ‚Å•Ï‚¦‚é
     }

@@ -218,13 +218,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &160258750
 Animator:
@@ -525,13 +525,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &282504854
 Animator:
@@ -857,13 +857,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &435266855
 Animator:
@@ -1162,13 +1162,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &775020465
 Animator:
@@ -1526,13 +1526,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &909059733
 Animator:
@@ -1682,6 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9d421c7ba584e478041737471a971f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimap: {fileID: 0}
   PrefabFance: {fileID: 35461223968575316, guid: cc84b0a9e68231d4da6adffb9e67ec75, type: 3}
   GameObjectAnimal: {fileID: 0}
   StartFlag: 0
@@ -2142,13 +2143,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &1146274013
 Animator:
@@ -2373,13 +2374,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &1180299095
 Animator:
@@ -4569,20 +4570,8 @@ MonoBehaviour:
   ClearUICam: {fileID: 1486099238}
   CameraDistance: {x: 0, y: 0, z: 0}
   player: {fileID: 1649694716}
-  animals:
-  - {fileID: 2093349963}
-  - {fileID: 1146274011}
-  - {fileID: 775020463}
-  allAnimals:
-  - {fileID: 2093349963}
-  - {fileID: 1146274011}
-  - {fileID: 775020463}
-  - {fileID: 160258748}
-  - {fileID: 435266853}
-  - {fileID: 1180299093}
-  - {fileID: 909059731}
-  - {fileID: 1675519883}
-  - {fileID: 282504852}
+  animals: []
+  allAnimals: []
 --- !u!1001 &1584481087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5415,13 +5404,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &1675519885
 Animator:
@@ -5927,13 +5916,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalDataId: 0
-  fbx: {fileID: 0}
+  targetTransform: {fileID: 0}
+  IconMinimap: {fileID: 0}
   ActionMode: 0
   ActionTime: 0
   _speed: 0.8
   rotSpeed: 3
   toRot: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
   motions: []
 --- !u!95 &2093349965
 Animator:

@@ -10,7 +10,8 @@ using Unity.VisualScripting;
 public class Animal : MonoBehaviour
 {
     public int animalDataId;
-    //public GameObject fbxContainer;
+    public Transform targetTransform;
+    public GameObject IconMinimap;
     public AnimalData animalData { get; set; }
     public enum KIND {
         Panda,
@@ -21,12 +22,13 @@ public class Animal : MonoBehaviour
         Idol,
         Run,
         Up,
-        Rot
+        Rot,
+        Appeal
     }
     public ACTIONMODE ActionMode = ACTIONMODE.Idol;
     public float ActionTime = 0.0f;
     public event Action<string> CompleteHandler;
-    public float _speed = 0.8f;
+    public float _speed = 0.8f / 2.0f;
     public float speed {
         get { return _speed; }
         set { _speed = value;
@@ -41,17 +43,22 @@ public class Animal : MonoBehaviour
     private Regex nameReg = new Regex("panda|bear", RegexOptions.IgnoreCase);
 
     // Start is called before the first frame update
-    public static GameObject InstanceWithInit(KIND kind, Vector3 vec3 = default(Vector3), ACTIONMODE actionMode = ACTIONMODE.Run)
+    public static GameObject InstanceWithInit(KIND kind, Vector3 vec3 = default(Vector3), ACTIONMODE actionMode = ACTIONMODE.Idol, bool minimapMarkerFg = false)
     {
         AnimalData ad = AnimalDataBase.AnimalMaster.First(x => x.kind == kind);
-        GameObject animalContainer = Instantiate(AnimalDataBase.AnimalContainer, vec3, Quaternion.identity);
-        GameObject animalFbxContainer = Instantiate(ad.fbx, Vector3.zero, Quaternion.identity, animalContainer.transform);
+        //GameObject animalContainer = Instantiate(AnimalDataBase.AnimalContainer, vec3, Quaternion.identity);
+        //GameObject animalFbxContainer = Instantiate(ad.fbx, Vector3.zero, Quaternion.identity, animalContainer.transform);
+        GameObject animalFbxContainer = Instantiate(ad.fbx, vec3, Quaternion.identity);
         Animal animal = animalFbxContainer.GetComponent<Animal>();
         animal.AnimalInit(ad, actionMode);
-        return animalContainer;
+        animal.IconMinimap.SetActive(minimapMarkerFg);
+        //return animalContainer;
+        return animalFbxContainer;
     }
     private void AnimalInit(AnimalData ad, ACTIONMODE actionMode)
     {
+        //targetTransform = transform.parent;
+        targetTransform = transform;
         animalDataId = ad.id;
         AnimalFBX animalFBX = gameObject.GetComponentInChildren<AnimalFBX>();
         animalFBX.AnimCompHandler += AnimationComplete;
@@ -59,12 +66,12 @@ public class Animal : MonoBehaviour
     }
     public virtual void Awake()
     {
-        //Instantiate(fbx, Vector3.zero, Quaternion.identity);
         animator = GetComponentInChildren<Animator>();
         //NextAction(ActionMode);
     }
     public virtual void Start()
     {
+        speed = 0.4f;
         // rotSpeed = 3.0f / Game.fps;
     }
 
@@ -83,6 +90,7 @@ public class Animal : MonoBehaviour
             case ACTIONMODE.Run: ActionRun(); break;
             case ACTIONMODE.Up:  break;
             case ACTIONMODE.Rot: ActionRotation(); break;
+            case ACTIONMODE.Appeal:  break;
         }
     }
     void NextActionInit(ACTIONMODE nextAction) {
@@ -93,6 +101,7 @@ public class Animal : MonoBehaviour
             case ACTIONMODE.Run: break;
             case ACTIONMODE.Up:  break;
             case ACTIONMODE.Rot: ActionRotationInit();  break;
+            case ACTIONMODE.Appeal:  break;
         } 
     }
     public void NextAction(ACTIONMODE nextAction) {
@@ -102,6 +111,7 @@ public class Animal : MonoBehaviour
             case ACTIONMODE.Run: NextAnimation("Run"); break;
             case ACTIONMODE.Up: NextAnimation("Up"); break;
             case ACTIONMODE.Rot: NextAnimation("Rot"); break;
+            case ACTIONMODE.Appeal: NextAnimation("Appeal"); break;
         }
     }
     public void NextAction(ACTIONMODE nextAction, Action<string> comp) {
@@ -110,12 +120,12 @@ public class Animal : MonoBehaviour
     }
     void ActionRotationInit() {
         float rotDir = UnityEngine.Random.Range(0, 2) == 0 ? -1 : 1;
-        float nextAngle = transform.eulerAngles.y + ROT_NUM * rotDir;
+        float nextAngle = targetTransform.eulerAngles.y + ROT_NUM * rotDir;
         toRot = Quaternion.Euler(0, nextAngle, 0);
     }
     void ActionRotation()
     {
-        Quaternion nowRot = transform.rotation;
+        Quaternion nowRot = targetTransform.rotation;
 		Quaternion nextRot = Quaternion.Slerp(nowRot, toRot, rotSpeed * Time.deltaTime);
         transform.rotation = nextRot;
         float dis = Math.Abs(Math.Abs(nextRot.y) - Math.Abs(toRot.y));
@@ -125,7 +135,7 @@ public class Animal : MonoBehaviour
     }
    void ActionRun()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        targetTransform.position += targetTransform.forward * speed * Time.deltaTime;
         if (ActionTime >= 3.0f) NextAction(ACTIONMODE.Rot);
     }
     private void OnDestroy()
@@ -143,13 +153,16 @@ public class Animal : MonoBehaviour
         {
             animator.SetBool("RunBool", false); 
             animator.SetBool("RotBool", false); 
+            animator.SetBool("AppealBool", false); 
             switch(label) { 
-                case "Idol": 
+                case "Idol":
+                    break;
                 case "Up": 
                     animator.SetTrigger("UpTrigger"); 
                    break;
                 case "Run": animator.SetBool("RunBool", true); break;
                 case "Rot": animator.SetBool("RotBool", true); break;
+                case "Appeal": animator.SetBool("AppealBool", true); break;
             }
         }
     }
